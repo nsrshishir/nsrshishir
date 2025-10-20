@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niaj Shishir - Odoo & Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #303846;
+            --secondary: #4a6fa5;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        #home {
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2e5aa9;
+        }
+
+        #about {
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        #cv {
+            background: white;
+        }
+
+        .cv-content {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #projects {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+
+        #contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Niaj Shishir</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Niaj Shishir</h1>
+            <p>Odoo & Full Stack Developer | Team Lead | Integration Specialist</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="image_niaj_blue_suit.jpeg" alt="Niaj Shishir">
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate <strong>Odoo and Full Stack Developer</strong> with over 7 years of experience in designing, developing, and deploying scalable solutions.
+                        I specialize in <strong>Odoo customization, API integrations, and system migrations</strong>, having led 102+ Odoo implementation projects for 72+ clients across diverse industries.
+                    </p>
+                    <p>
+                        My expertise includes <strong>payment gateway integrations, eCommerce redesigns, database migrations, and VoIP systems</strong>.
+                        I'm also an active contributor to the Odoo community, reporting and proposing solutions for issues in modules like <code>stock_account</code> and <code>mrp</code> on GitHub.
+                    </p>
+                    <div class="skills">
+                        <span class="skill">Odoo Development</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">PostgreSQL</span>
+                        <span class="skill">API Integrations</span>
+                        <span class="skill">GitHub</span>
+                        <span class="skill">Linux</span>
+                        <span class="skill">Team Leadership</span>
+                        <span class="skill">Project Management</span>
+                        <span class="skill">VoIP Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv">
+        <div class="container">
+            <div class="section-title">
+                <h2>My CV</h2>
+            </div>
+            <div class="cv-content">
+                <embed src="Niaj_Shishir_CV.pdf" type="application/pdf" width="100%" height="600px" />
+                <p style="text-align: center; margin: 20px 0;">
+                    <a href="Niaj_Shishir_CV.pdf" class="btn" download>Download CV</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=Odoo+Payment+Gateways" alt="Odoo Payment Gateways">
+                    </div>
+                    <div class="project-info">
+                        <h3>Odoo Payment Gateway Integrations</h3>
+                        <p>Integrated 13+ payment gateways (NZ and BD) into Odoo 13-18, enabling seamless transactions for global and local clients.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=Ecommerce+Redesign" alt="Ecommerce Redesign">
+                    </div>
+                    <div class="project-info">
+                        <h3>Ecommerce Redesign</h3>
+                        <p>Revamped single-page checkout and eCommerce platforms for 10+ clients using Odoo 14-18, improving user experience and conversions.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=VoIP+System" alt="VoIP System">
+                    </div>
+                    <div class="project-info">
+                        <h3>VoIP System Implementation</h3>
+                        <p>Implemented Asterisk-based VoIP with WebSocket, enabling cross-country communication for distributed teams.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=Database+Migration" alt="Database Migration">
+                    </div>
+                    <div class="project-info">
+                        <h3>Database Migration</h3>
+                        <p>Migrated and upgraded Odoo databases for 7 clients from versions 13-17 to 17-18, ensuring data integrity and performance.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=Shipping+Integrations" alt="Shipping Integrations">
+                    </div>
+                    <div class="project-info">
+                        <h3>Shipping Integrations</h3>
+                        <p>Developed shipping connectors for NZ Post, Mainfreight, Pathao, and eCourier in Odoo 15-18, streamlining logistics.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/300x200?text=Open+Source" alt="Open Source">
+                    </div>
+                    <div class="project-info">
+                        <h3>Open Source Contributions</h3>
+                        <p>Reported and proposed solutions for issues in Odoo's <code>stock_account</code> and <code>mrp</code> modules on GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/nsrshishir" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/nsrshishir" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:nsrshishir550@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Niaj Shishir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
