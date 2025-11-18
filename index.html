@@ -3,211 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niaj Shishir - Odoo & Full Stack Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Md Niaj Shahriar Shishir - Odoo Full Stack Developer Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         :root {
-            --primary: #303846;
-            --secondary: #4a6fa5;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: var(--dark);
-            line-height: 1.6;
-            background: #fefefe;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         header {
-            background: var(--primary);
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        #home {
-            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-            color: white;
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
             text-align: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('image_niaj_blue_suit.jpeg') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
         }
 
         .hero-content {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 40px;
-            border-radius: 10px;
+            position: relative;
+            z-index: 2;
             max-width: 800px;
+            margin: 0 auto;
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #fff;
         }
 
-        .hero-content p {
-            font-size: 18px;
+        .hero p {
+            font-size: 1.4rem;
             margin-bottom: 30px;
+            color: #f0f0f0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
             text-decoration: none;
+            border-radius: 5px;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: background 0.3s ease;
         }
 
         .btn:hover {
-            background: #2e5aa9;
+            background: #2980b9;
         }
 
-        #about {
-            background: var(--light);
+        section {
+            padding: 60px 0;
+            background: var(--card-bg);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .section-title {
+        section:nth-of-type(even) {
+            background-color: var(--light-bg);
+        }
+
+        h3 {
             text-align: center;
-            margin-bottom: 50px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            position: relative;
         }
 
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary);
+        h3::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            border-radius: 2px;
         }
 
         .about-content {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 40px;
-        }
-
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
+            padding: 0 20px;
         }
 
         .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-image {
             flex: 1;
+            min-width: 200px;
+            text-align: center;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .skill {
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        #cv {
-            background: white;
-        }
-
-        .cv-content {
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        #projects {
-            background: var(--light);
-        }
-
-        .projects-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .skill-item {
+            background: var(--light-bg);
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .skill-item h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .skill-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-item ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .skill-item ul li::before {
+            content: '✓';
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            padding: 0 20px;
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
-        .project-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .project-img img {
+        .project-card img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
         }
 
@@ -215,79 +237,104 @@
             padding: 20px;
         }
 
-        .project-info h3 {
-            margin-bottom: 10px;
+        .project-info h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.4rem;
         }
 
-        #contact {
-            background: var(--primary);
-            color: white;
-            text-align: center;
+        .project-info p {
+            font-size: 0.95rem;
+            color: #555;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .form-group {
+        .experience-item {
+            background: var(--card-bg);
+            padding: 25px;
             margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .form-group label {
-            display: block;
+        .experience-item h4 {
+            color: var(--primary-color);
             margin-bottom: 5px;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-family: inherit;
+        .experience-item .company-date {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
-        .form-group textarea {
-            height: 150px;
+        .experience-item ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+        .experience-item ul li {
+            margin-bottom: 8px;
+        }
+
+        .education-item, .certification-item, .publication-item {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .education-item h4, .certification-item h4, .publication-item h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .education-item p, .certification-item p, .publication-item p {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
         }
 
         footer {
-            background: var(--dark);
-            color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
+            background: var(--secondary-color);
+            color: #fff;
+            margin-top: 40px;
+            border-radius: 8px;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+        footer .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .social-links a {
-            color: white;
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary);
+        footer .social-links a:hover {
+            color: var(--primary-color);
         }
 
         @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            h3 {
+                font-size: 1.8rem;
+            }
             .about-content {
                 flex-direction: column;
             }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 32px;
+            nav ul li {
+                display: block;
+                margin: 10px 0;
             }
         }
     </style>
@@ -295,173 +342,247 @@
 <body>
     <header>
         <div class="container">
+            <h1>Md Niaj Shahriar Shishir</h1>
             <nav>
-                <div class="logo">Niaj Shishir</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="home">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Niaj Shishir</h1>
-            <p>Odoo & Full Stack Developer | Team Lead | Integration Specialist</p>
+            <h2>Odoo Full Stack Developer<br>Team Lead<br>Integration Specialist</h2>
+            <p>7+ years of experience customizing, integrating, and leading 112+ Odoo implementation projects for 82+ clients.</p>
             <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn">Get in Touch</a>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
+    <div class="container">
+        <section id="about">
+            <h3>About Me</h3>
             <div class="about-content">
-                <div class="about-img">
-                    <img src="image_niaj_blue_suit.jpeg" alt="Niaj Shishir">
-                </div>
                 <div class="about-text">
                     <p>
-                        I'm a passionate <strong>Odoo and Full Stack Developer</strong> with over 7 years of experience in designing, developing, and deploying scalable solutions.
-                        I specialize in <strong>Odoo customization, API integrations, and system migrations</strong>, having led 110+ Odoo implementation projects for 82+ clients across diverse industries.
+                        As a Full Stack Developer and Odoo Specialist with over 7 years of experience, I excel in customizing, integrating, and migrating Odoo (versions 13-18) for a diverse range of clients. I have successfully led 112+ Odoo implementation projects, encompassing complex tasks such as payment gateway integrations, shipping solutions, and comprehensive eCommerce redesigns.
                     </p>
                     <p>
-                        My expertise includes <strong>payment gateway integrations, eCommerce redesigns, database migrations, and VoIP systems</strong>.
-                        I'm also an active contributor to the Odoo community, reporting and proposing solutions for issues in modules like <code>stock_account</code> and <code>l10n_bd</code> on GitHub.
+                        My expertise spans Python, JavaScript, XML, and PostgreSQL, allowing me to tackle challenging technical requirements efficiently. I am passionate about open-source development and R&D, continuously seeking innovative solutions and contributing to the Odoo community. I am an autonomous, quick learner with a proven track record of solving complex technical challenges and mentoring junior developers.
                     </p>
-                    <div class="skills">
-                        <span class="skill">Odoo Development</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">PostgreSQL</span>
-                        <span class="skill">API Integrations</span>
-                        <span class="skill">GitHub</span>
-                        <span class="skill">Linux</span>
-                        <span class="skill">Team Leadership</span>
-                        <span class="skill">Project Management</span>
-                        <span class="skill">VoIP Systems</span>
-                    </div>
+                    <p>
+                        Whether it's optimizing server performance, redesigning access control systems, or integrating various platforms, I am committed to delivering high-quality, scalable, and user-friendly solutions.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="../image_niaj_blue_suit.jpeg" alt="Md Niaj Shahriar Shishir">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="cv">
-        <div class="container">
-            <div class="section-title">
-                <h2>My CV</h2>
+        <section id="skills">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Odoo Development</h4>
+                    <ul>
+                        <li>Community & Enterprise (v13-18)</li>
+                        <li>Custom Modules & Workflows</li>
+                        <li>Reports & Migrations</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Python, JavaScript</li>
+                        <li>XML, CSS, HTML</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>Databases</h4>
+                    <ul>
+                        <li>PostgreSQL</li>
+                        <li>ORM, Report Engine</li>
+                        <li>Database Migration & Upgrades</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>API & Integrations</h4>
+                    <ul>
+                        <li>Payment Gateways (SSLCommerz, bKash, etc.)</li>
+                        <li>Shipping (NZ Post, Pathao, etc.)</li>
+                        <li>ERP, eCommerce (WooCommerce, Shopify)</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>DevOps & Tools</h4>
+                    <ul>
+                        <li>Git, GitHub, Linux</li>
+                        <li>Server Deployment & Maintenance</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>Specialized Skills</h4>
+                    <ul>
+                        <li>VoIP (Asterisk, WebSocket)</li>
+                        <li>Open Source Contributions</li>
+                        <li>Leadership & Mentoring</li>
+                    </ul>
+                </div>
             </div>
-            <div class="cv-content">
-                <embed src="Niaj_Shishir_CV.pdf" type="application/pdf" width="100%" height="600px" />
-                <p style="text-align: center; margin: 20px 0;">
-                    <a href="Niaj_Shishir_CV.pdf" class="btn" download>Download CV</a>
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Projects</h2>
-            </div>
-            <div class="projects-grid">
+        <section id="projects">
+            <h3>Featured Projects</h3>
+            <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/payment-gateway-integration.jpg" alt="Odoo Payment Gateways">
-                    </div>
+                    <img src="../img/open-source-contibution.jpg" alt="Project Image 1">
                     <div class="project-info">
-                        <h3>Odoo Payment Gateway Integrations</h3>
-                        <p>Integrated 13+ payment gateways (NZ and BD) into Odoo 13-18, enabling seamless transactions for global and local clients.</p>
+                        <h4>Odoo Instance Deployment Automation</h4>
+                        <p>Deployed and managed 300+ Odoo instances across live and staging servers using custom bash scripts, automating setup, configuration, and maintenance for efficiency and scalability.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/ecomdeveloper.jpeg" alt="Ecommerce Redesign">
-                    </div>
+                    <img src="../img/ecomdeveloper.jpeg" alt="Project Image 2">
                     <div class="project-info">
-                        <h3>Ecommerce Redesign</h3>
-                        <p>Revamped single-page checkout and eCommerce platforms for 10+ clients using Odoo 14-18, improving user experience and conversions.</p>
+                        <h4>Ecommerce Redesign & Single-Page Checkout</h4>
+                        <p>Revamped single-page checkout and eCommerce platforms for 10+ clients using Odoo 14-18, significantly improving user experience and conversion rates.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/voip-integration.jpg" alt="VoIP System">
-                    </div>
+                    <img src="../img/payment-gateway-integration.jpg" alt="Project Image 3">
                     <div class="project-info">
-                        <h3>VoIP System Implementation</h3>
-                        <p>Implemented Asterisk-based VoIP with WebSocket, enabling cross-country communication for distributed teams.</p>
+                        <h4>Odoo Payment Gateway Integrations</h4>
+                        <p>Integrated 13+ payment gateways into Odoo 13-18 (e.g., NZ Click, SSLCommerz, bKash), enabling seamless transactions for global and local clients.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
+                    </div>
+                </div>
+                 <div class="project-card">
+                    <img src="../img/shipping-integration.png" alt="Project Image 4">
+                    <div class="project-info">
+                        <h4>Odoo Shipping Integrations</h4>
+                        <p>Developed shipping connectors for NZ Post, Mainfreight, Pathao, and eCourier, streamlining logistics for clients and enhancing supply chain efficiency.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/version-migration.jpg" alt="Database Migration">
-                    </div>
+                    <img src="../img/voip-integration.jpg" alt="Project Image 5">
                     <div class="project-info">
-                        <h3>Database Migration</h3>
-                        <p>Migrated and upgraded Odoo databases for 7 clients from versions 13-17 to 17-18, ensuring data integrity and performance.</p>
+                        <h4>VoIP System Implementation with Asterisk</h4>
+                        <p>Implemented an Asterisk-based VoIP system with WebSocket, enabling robust cross-country team communication and improved internal collaboration.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/shipping-integration.png" alt="Shipping Integrations">
-                    </div>
+                 <div class="project-card">
+                    <img src="../img/version-migration.jpg" alt="Project Image 6">
                     <div class="project-info">
-                        <h3>Shipping Integrations</h3>
-                        <p>Developed shipping connectors for NZ Post, Mainfreight, Pathao, and eCourier in Odoo 15-18, streamlining logistics.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="img/open-source-contibution.jpg" alt="Open Source">
-                    </div>
-                    <div class="project-info">
-                        <h3>Open Source Contributions</h3>
-                        <p>Reported and proposed solutions for issues in Odoo's <code>stock_account</code> and <code>l10n_bd</code> modules on GitHub.</p>
+                        <h4>Odoo Database & Host Migrations</h4>
+                        <p>Successfully migrated clients from PHP/.NET to Odoo and upgraded Odoo databases (v13-17 to v17-18) and server hosts (VPS to Odoo.sh), ensuring data integrity and optimizing performance.</p>
+                        <a href="#" class="btn btn-small">View Details</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
+        <section id="experience">
+            <h3>Professional Experience</h3>
+            <div class="experience-item">
+                <h4>Team Lead & Sr. Software Engineer</h4>
+                <div class="company-date">
+                    <p class="company">Metamorphosis Ltd., Bangladesh</p>
+                    <p class="date">Oct 2021 - Present</p>
+                </div>
+                <ul>
+                    <li>Led 112+ Odoo implementation projects for 82+ clients (v13-18), customizing modules, workflows, and reports.</li>
+                    <li>Migrated clients from PHP/.NET-based systems to Odoo, ensuring seamless transition and data integrity.</li>
+                    <li>Integrated 13+ payment gateways and developed shipping integrations for various carriers.</li>
+                    <li>Redesigned and developed single-page checkout systems and revamped eCommerce platforms for 10+ clients.</li>
+                    <li>Led a team of developers, mentoring junior members and conducting code reviews.</li>
+                </ul>
             </div>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+            <div class="experience-item">
+                <h4>Software Engineer & Server Specialist</h4>
+                <div class="company-date">
+                    <p class="company">MetaKave, Dhaka, Bangladesh</p>
+                    <p class="date">Nov 2020 - Jun 2022</p>
+                </div>
+                <ul>
+                    <li>Developed custom PHP, Laravel, and MySQL applications, including REST APIs.</li>
+                    <li>Built a Laravel-based delivery management system with SAP integration for a multinational company.</li>
+                    <li>Deployed and maintained Windows and Linux servers, ensuring 99.9% uptime.</li>
+                </ul>
             </div>
-        </div>
-    </section>
+            <div class="experience-item">
+                <h4>Executive (Information Technology)</h4>
+                <div class="company-date">
+                    <p class="company">Big Boss Corporation Limited</p>
+                    <p class="date">Oct 2017 - Aug 2019</p>
+                </div>
+                <ul>
+                    <li>Managed Microsoft Active Directory and network infrastructure for 200+ users.</li>
+                    <li>Monitored and maintained CCTV systems and server racks.</li>
+                    <li>Provided technical support and reported directly to the Chairman & Directors.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h3>Education & Certifications</h3>
+            <div class="education-item">
+                <h4>Master of Information Technology, Information Technology</h4>
+                <p class="institution">Jahangirnagar University</p>
+                <p class="date">Jan 2018 - Dec 2019</p>
+            </div>
+            <div class="education-item">
+                <h4>Bachelor of Science</h4>
+                <p class="institution">Shahjalal University of Science and Technology</p>
+                <p class="major">Major: Mathematics</p>
+                <p class="major">Major: Computer Science and Engineering</p>
+                <p class="date">Jan 2012 - Jul 2017</p>
+            </div>
+            <div class="certification-item">
+                <h4>Odoo 17 Functional Consultant Certification</h4>
+                <p>Expertise in Odoo module customization, API integration, and workflow automation.</p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h3>Publications</h3>
+            <div class="publication-item">
+                <h4>Performance Enhancement of Hadoop MapReduce by Combining Data Inside the Mapper</h4>
+                <p><a href="https://ieeexplore.ieee.org/document/9331097" target="_blank">IEEE Conference Publication</a></p>
+                <p>Proposed the Inner Map Combining (IMC) algorithm for Hadoop MapReduce, achieving a 65% efficiency improvement.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h3>Get in Touch</h3>
+            <p style="text-align: center; margin-bottom: 30px;">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <p style="text-align: center;">
+                Email: <a href="mailto:nsrshishir550@gmail.com">nsrshishir550@gmail.com</a> | Phone: +8801827512928
+            </p>
+            <p style="text-align: center;">
+                LinkedIn: <a href="https://www.linkedin.com/in/nsrshishir" target="_blank">linkedin.com/in/nsrshishir</a> | GitHub: <a href="https://github.com/nsrshishir" target="_blank">github.com/nsrshishir</a>
+            </p>
+            <!-- A contact form could go here for a more interactive experience -->
+        </section>
+    </div>
 
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/nsrshishir" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/nsrshishir" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:nsrshishir550@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/nsrshishir" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://github.com/nsrshishir" target="_blank" aria-label="GitHub">GitHub</a>
             </div>
-            <p>&copy; 2025 Niaj Shishir. All rights reserved.</p>
+            <p>&copy; 2023 Md Niaj Shahriar Shishir. All rights reserved.</p>
         </div>
     </footer>
 </body>
