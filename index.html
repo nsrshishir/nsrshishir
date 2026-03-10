@@ -3,624 +3,732 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Niaj Shahriar Shishir - Odoo Full Stack Developer Portfolio</title>
+    <title>Md Niaj Shahriar Shishir | Odoo Architect & Full Stack Lead</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --text-color: #333;
-            --light-bg: #f4f7f6;
-            --card-bg: #ffffff;
-            --border-color: #e0e0e0;
+            --navy: #0f172a;
+            --blue: #2563eb;
+            --slate: #475569;
+            --light: #f8fafc;
+            --accent: #38bdf8;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--light-bg);
+            color: #1e293b;
+            background-color: var(--white);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        header {
-            background: var(--secondary-color);
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #fff;
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            z-index: 1001;
+        }
+
+        .logo span {
+            color: var(--accent);
         }
 
         nav ul {
-            padding: 0;
+            display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+            gap: 30px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--white);
             text-decoration: none;
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('image_niaj_blue_suit.jpeg') no-repeat center center/cover;
-            color: #fff;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
+        nav ul li a:hover {
+            color: var(--accent);
         }
-        .hero::before {
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--navy);
+            padding: 140px 0 80px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 0;
+            width: 50%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            background: linear-gradient(90deg, var(--navy) 0%, rgba(15, 23, 42, 0) 100%), url('image_niaj_blue_suit.png') no-repeat center center/cover;
+            opacity: 0.4;
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 700px;
         }
 
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            color: #fff;
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            color: #f0f0f0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--slate);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            background: var(--primary-color);
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
-
-        section {
-            padding: 60px 0;
-            background: var(--card-bg);
-            margin-bottom: 20px;
+            display: inline-block;
+            padding: 14px 28px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        section:nth-of-type(even) {
-            background-color: var(--light-bg);
-        }
-
-        h3 {
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--secondary-color);
-            position: relative;
         }
 
-        h3::after {
-            content: '';
-            width: 80px;
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 60px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--slate);
+            letter-spacing: 1px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .section-header .line {
+            width: 60px;
             height: 4px;
-            background: var(--primary-color);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
+            background: var(--blue);
+            margin: 0 auto;
             border-radius: 2px;
         }
 
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
-            padding: 0 20px;
+            align-items: center;
         }
 
-        .about-text {
-            flex: 2;
-            min-width: 300px;
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 15px 15px 0px var(--light);
         }
 
-        .about-image {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .skill-item {
-            background: var(--light-bg);
-            padding: 20px;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        .skill-card {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
-        .skill-item h4 {
-            margin-top: 0;
-            color: var(--primary-color);
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 20px;
         }
-        .skill-item ul {
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .skill-card ul {
             list-style: none;
-            padding: 0;
-        }
-        .skill-item ul li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .skill-item ul li::before {
-            content: '✓';
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
         }
 
+        .skill-card ul li {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        /* Projects Grid */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
+            gap: 25px;
         }
 
         .project-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card img {
-            width: 100%;
+        .project-img {
             height: 200px;
+            background: var(--navy);
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
         .project-info {
-            padding: 20px;
+            padding: 25px;
         }
 
         .project-info h4 {
-            margin-top: 0;
-            color: var(--secondary-color);
-            font-size: 1.4rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--navy);
         }
 
         .project-info p {
-            font-size: 0.95rem;
-            color: #555;
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-bottom: 15px;
         }
 
-        .experience-item {
-            background: var(--card-bg);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .experience-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .experience-item .company-date {
+        .project-tags {
             display: flex;
-            justify-content: space-between;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .experience-item ul {
-            margin: 0;
-            padding-left: 25px;
-        }
-        .experience-item ul li {
-            margin-bottom: 8px;
+        .tag {
+            background: #f1f5f9;
+            color: var(--slate);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
-        .education-item, .certification-item, .publication-item {
-            background: var(--card-bg);
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #e2e8f0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background: var(--white);
+            border: 3px solid var(--blue);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -8px; }
+
+        .timeline-content {
             padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background: var(--light);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
 
-        .education-item h4, .certification-item h4, .publication-item h4 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .timeline-content h3 {
+            font-size: 1rem;
+            color: var(--blue);
             margin-bottom: 5px;
         }
 
-        .education-item p, .certification-item p, .publication-item p {
-            margin: 0;
-            color: #555;
-            font-size: 0.95rem;
+        .timeline-content span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--slate);
         }
 
+        /* Footer */
         footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h2 { font-size: 1.25rem; margin-bottom: 15px; }
+        .footer-about p { color: var(--slate); font-size: 0.9rem; margin-bottom: 20px; }
+        .footer-links h4 { margin-bottom: 15px; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: var(--slate); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links ul li a:hover { color: var(--accent); }
+
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a {
+            width: 40px; height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; color: var(--white); transition: all 0.3s ease;
+        }
+        .social-icons a:hover { background: var(--blue); transform: translateY(-3px); }
+
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            padding: 30px 0;
-            background: var(--secondary-color);
-            color: #fff;
-            margin-top: 40px;
-            border-radius: 8px;
+            color: var(--slate);
+            font-size: 0.85rem;
         }
 
-        footer .social-links a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer .social-links a:hover {
-            color: var(--primary-color);
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero::after { width: 100%; opacity: 0.2; }
+            .hero-content { text-align: center; margin: 0 auto; }
+            .hero-btns { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
+            .timeline-item::after { left: 12px; }
+            .right { left: 0%; }
         }
 
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            h3 {
-                font-size: 1.8rem;
-            }
-            .about-content {
+            .menu-toggle { display: block; }
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--navy);
                 flex-direction: column;
+                padding: 40px;
+                transition: 0.4s;
+                text-align: center;
             }
-            nav ul li {
-                display: block;
-                margin: 10px 0;
-            }
+            nav ul.active { left: 0; }
+            .btn { width: 100%; }
+            .hero { padding-top: 120px; }
         }
     </style>
 </head>
 <body>
-    <header>
+    <nav>
         <div class="container">
-            <h1>Md Niaj Shahriar Shishir</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <a href="#" class="logo">NIAJ<span>.</span>SHISHIR</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Odoo <span>Architect</span> & Full Stack Lead</h1>
+                <p>Strategic ERP implementation and architectural leadership across v12-v19. Specialized in high-performance API ecosystems and global fintech integrations.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View Portfolio</a>
+                    <a href="Md_Niaj_Shahriar_Shishir_Odoo_FullStack_Architect.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Odoo Full Stack Developer<br>Team Lead<br>Integration Specialist</h2>
-            <p>7+ years of experience customizing, integrating, and leading 112+ Odoo implementation projects for 82+ clients.</p>
-            <a href="#projects" class="btn">View My Work</a>
-            <a href="#contact" class="btn">Get in Touch</a>
-            <a href="Md_Niaj_Shahriar_Shishir_CV.pdf" class="btn" download>Download CV</a>
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>125+</h3>
+                    <p>ERP Projects</p>
+                </div>
+                <div class="stat-card">
+                    <h3>82+</h3>
+                    <p>Global Clients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>12+</h3>
+                    <p>Odoo Upgrades</p>
+                </div>
+                <div class="stat-card">
+                    <h3>7+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="container">
-        <section id="about">
-            <h3>About Me</h3>
-            <div class="about-content">
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategy & Code</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="image_niaj_blue_suit.png" alt="Niaj Shishir">
+                </div>
                 <div class="about-text">
-                    <p>
-                        As a Full Stack Developer and Odoo Specialist with over 7 years of experience, I excel in customizing, integrating, and migrating Odoo (versions 13-18) for a diverse range of clients. I have successfully led 112+ Odoo implementation projects, encompassing complex tasks such as payment gateway integrations, shipping solutions, and comprehensive eCommerce redesigns.
+                    <p style="margin-bottom: 20px;">
+                        I am a senior Odoo Architect and Full Stack Lead dedicated to building high-performance, compliant, and scalable enterprise ecosystems. My approach combines deep technical mastery of the <strong>Odoo framework (v12-v19)</strong> with a strategic focus on business ROI.
                     </p>
-                    <p>
-                        My expertise spans Python, JavaScript, XML, and PostgreSQL, allowing me to tackle challenging technical requirements efficiently. I am passionate about open-source development and R&D, continuously seeking innovative solutions and contributing to the Odoo community. I am an autonomous, quick learner with a proven track record of solving complex technical challenges and mentoring junior developers.
+                    <p style="margin-bottom: 20px;">
+                        With over <strong>125 successful implementations</strong>, I've mastered the art of bridging complex regulatory requirements—like <strong>ZATCA Phase 2</strong> and <strong>NBR compliance</strong>.
                     </p>
-                    <p>
-                        Whether it's optimizing server performance, redesigning access control systems, or integrating various platforms, I am committed to delivering high-quality, scalable, and user-friendly solutions.
-                    </p>
-                </div>
-                <div class="about-image">
-                    <img src="image_niaj_blue_suit.jpeg" alt="Md Niaj Shahriar Shishir">
+                    <a href="#contact" class="btn btn-primary">Start a Project</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills">
-            <h3>Technical Skills</h3>
+    <section id="skills" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Expertise</h2>
+                <div class="line"></div>
+            </div>
             <div class="skills-grid">
-                <div class="skill-item">
-                    <h4>Odoo Development</h4>
+                <div class="skill-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>ERP Architecture</h4>
                     <ul>
-                        <li>Community & Enterprise (v13-18)</li>
-                        <li>Custom Modules & Workflows</li>
-                        <li>Reports & Migrations</li>
+                        <li>Odoo v12-v19 Expert</li>
+                        <li>SaaS Orchestration</li>
+                        <li>ORM Optimization</li>
                     </ul>
                 </div>
-                <div class="skill-item">
-                    <h4>Programming Languages</h4>
+                <div class="skill-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Global Fintech</h4>
                     <ul>
-                        <li>Python, JavaScript</li>
-                        <li>XML, CSS, HTML</li>
+                        <li>13+ Payment Gateways</li>
+                        <li>International BNPL</li>
+                        <li>ZATCA & NBR</li>
                     </ul>
                 </div>
-                <div class="skill-item">
-                    <h4>Databases</h4>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Full Stack Synergy</h4>
                     <ul>
-                        <li>PostgreSQL</li>
-                        <li>ORM, Report Engine</li>
-                        <li>Database Migration & Upgrades</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h4>API & Integrations</h4>
-                    <ul>
-                        <li>Payment Gateways (SSLCommerz, bKash, etc.)</li>
-                        <li>Shipping (NZ Post, Pathao, etc.)</li>
-                        <li>ERP, eCommerce (WooCommerce, Shopify)</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h4>DevOps & Tools</h4>
-                    <ul>
-                        <li>Git, GitHub, Linux</li>
-                        <li>Server Deployment & Maintenance</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h4>Specialized Skills</h4>
-                    <ul>
-                        <li>VoIP (Asterisk, WebSocket)</li>
-                        <li>Open Source Contributions</li>
-                        <li>Leadership & Mentoring</li>
+                        <li>Modern MERN Stack</li>
+                        <li>Enterprise LAMP</li>
+                        <li>REST & GraphQL</li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h3>Featured Projects</h3>
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Selected Impact</h2>
+                <div class="line"></div>
+            </div>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="img/open-source-contibution.jpg" alt="Project Image 1">
+                    <div class="project-img"><img src="img/payment-gateway-integration.jpg" alt="ZATCA"></div>
                     <div class="project-info">
-                        <h4>Odoo Instance Deployment Automation</h4>
-                        <p>Deployed and managed 300+ Odoo instances across live and staging servers using custom bash scripts, automating setup, configuration, and maintenance for efficiency and scalability.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
+                        <h4>Regulatory Engine</h4>
+                        <p>Integration of Odoo with Saudi ZATCA Phase 2 and NBR-approved systems.</p>
+                        <div class="project-tags">
+                            <span class="tag">Compliance</span>
+                            <span class="tag">Odoo v17</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="img/ecomdeveloper.jpeg" alt="Project Image 2">
+                    <div class="project-img"><img src="img/ecomdeveloper.jpeg" alt="Headless"></div>
                     <div class="project-info">
-                        <h4>Ecommerce Redesign & Single-Page Checkout</h4>
-                        <p>Revamped single-page checkout and eCommerce platforms for 10+ clients using Odoo 14-18, significantly improving user experience and conversion rates.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
+                        <h4>Headless Odoo</h4>
+                        <p>High-performance React frontend for Odoo v18, reducing load times by 70%.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">UX</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="img/payment-gateway-integration.jpg" alt="Project Image 3">
+                    <div class="project-img"><img src="img/open-source-contibution.jpg" alt="Automation"></div>
                     <div class="project-info">
-                        <h4>Odoo Payment Gateway Integrations</h4>
-                        <p>Integrated 13+ payment gateways into Odoo 13-18 (e.g., NZ Click, SSLCommerz, bKash), enabling seamless transactions for global and local clients.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
-                    </div>
-                </div>
-                 <div class="project-card">
-                    <img src="img/shipping-integration.png" alt="Project Image 4">
-                    <div class="project-info">
-                        <h4>Odoo Shipping Integrations</h4>
-                        <p>Developed shipping connectors for NZ Post, Mainfreight, Pathao, and eCourier, streamlining logistics for clients and enhancing supply chain efficiency.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="img/voip-integration.jpg" alt="Project Image 5">
-                    <div class="project-info">
-                        <h4>VoIP System Implementation with Asterisk</h4>
-                        <p>Implemented an Asterisk-based VoIP system with WebSocket, enabling robust cross-country team communication and improved internal collaboration.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
-                    </div>
-                </div>
-                 <div class="project-card">
-                    <img src="img/version-migration.jpg" alt="Project Image 6">
-                    <div class="project-info">
-                        <h4>Odoo Database & Host Migrations</h4>
-                        <p>Successfully migrated clients from PHP/.NET to Odoo and upgraded Odoo databases (v13-17 to v17-18) and server hosts (VPS to Odoo.sh), ensuring data integrity and optimizing performance.</p>
-                        <a href="#" class="btn btn-small">View Details</a>
+                        <h4>SaaS Deployment</h4>
+                        <p>Automated orchestration for 300+ Odoo instances using Bash and Docker.</p>
+                        <div class="project-tags">
+                            <span class="tag">DevOps</span>
+                            <span class="tag">AWS</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="experience">
-            <h3>Professional Experience</h3>
-            <div class="experience-item">
-                <h4>Team Lead & Sr. Software Engineer</h4>
-                <div class="company-date">
-                    <p class="company">Metamorphosis Ltd., Bangladesh</p>
-                    <p class="date">Oct 2024 - Present</p>
-                </div>
-                <ul>
-                    <li>Led 112+ Odoo implementation projects for 82+ clients (v13-18), customizing modules, workflows, and reports.</li>
-                    <li>Migrated clients from PHP/.NET-based systems to Odoo, ensuring seamless transition and data integrity.</li>
-                    <li>Integrated 13+ payment gateways and developed shipping integrations for various carriers.</li>
-                    <li>Redesigned and developed single-page checkout systems and revamped eCommerce platforms for 10+ clients.</li>
-                    <li>Led a team of developers, mentoring junior members and conducting code reviews.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4>Sr. Odoo Software Engineer</h4>
-                <div class="company-date">
-                    <p class="company">Metamorphosis Ltd., Bangladesh</p>
-                    <p class="date">Oct 2023 - Sep 2024</p>
-                </div>
-                <ul>
-                    <li>Designed and developed complex Odoo modules and features, focusing on scalability and performance.</li>
-                    <li>Provided technical guidance and mentorship to junior developers.</li>
-                    <li>Contributed to architectural decisions and system optimizations.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4>Odoo Software Engineer</h4>
-                <div class="company-date">
-                    <p class="company">Metamorphosis Ltd., Bangladesh</p>
-                    <p class="date">Oct 2022 - Sep 2023</p>
-                </div>
-                <ul>
-                    <li>Developed and maintained Odoo modules, including customizations and new feature implementation.</li>
-                    <li>Participated in code reviews and ensured adherence to best practices.</li>
-                    <li>Collaborated with clients to gather requirements and deliver tailored solutions.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4>Junior Odoo Software Developer</h4>
-                <div class="company-date">
-                    <p class="company">Metamorphosis Ltd., Bangladesh</p>
-                    <p class="date">Oct 2021 - Sep 2022</p>
-                </div>
-                <ul>
-                    <li>Assisted in the development and customization of Odoo modules under senior guidance.</li>
-                    <li>Performed bug fixing and maintained existing Odoo functionalities.</li>
-                    <li>Learned and applied Odoo development best practices and methodologies.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4>Software Engineer & Server Specialist</h4>
-                <div class="company-date">
-                    <p class="company">MetaKave, Dhaka, Bangladesh</p>
-                    <p class="date">Nov 2020 - Oct 2021</p>
-                </div>
-                <ul>
-                    <li>Developed custom PHP, Laravel, and MySQL applications, including REST APIs.</li>
-                    <li>Built a Laravel-based delivery management system with SAP integration for a multinational company.</li>
-                    <li>Deployed and maintained Windows and Linux servers, ensuring 99.9% uptime.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4>Executive (Information Technology)</h4>
-                <div class="company-date">
-                    <p class="company">Big Boss Corporation Limited</p>
-                    <p class="date">Oct 2017 - Aug 2019</p>
-                </div>
-                <ul>
-                    <li>Managed Microsoft Active Directory and network infrastructure for 200+ users.</li>
-                    <li>Monitored and maintained CCTV systems and server racks.</li>
-                    <li>Provided technical support and reported directly to the Chairman & Directors.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education">
-            <h3>Education & Certifications</h3>
-            <div class="education-item">
-                <h4>Master of Information Technology, Information Technology</h4>
-                <p class="institution">Jahangirnagar University</p>
-                <p class="date">Jan 2018 - Dec 2019</p>
-            </div>
-            <div class="education-item">
-                <h4>Bachelor of Science</h4>
-                <p class="institution">Shahjalal University of Science and Technology</p>
-                <p class="major">Major: Mathematics</p>
-                <p class="major">Major: Computer Science and Engineering</p>
-                <p class="date">Jan 2012 - Jul 2017</p>
-            </div>
-            <div class="certification-item">
-                <h4>Odoo 17 Functional Consultant Certification</h4>
-                <p>Expertise in Odoo module customization, API integration, and workflow automation.</p>
-            </div>
-        </section>
-
-        <section id="publications">
-            <h3>Publications</h3>
-            <div class="publication-item">
-                <h4>Performance Enhancement of Hadoop MapReduce by Combining Data Inside the Mapper</h4>
-                <p><a href="https://ieeexplore.ieee.org/document/9331097" target="_blank">IEEE Conference Publication</a></p>
-                <p>Proposed the Inner Map Combining (IMC) algorithm for Hadoop MapReduce, achieving a 65% efficiency improvement.</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h3>Get in Touch</h3>
-            <p style="text-align: center; margin-bottom: 30px;">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-            <p style="text-align: center;">
-                Email: <a href="mailto:nsrshishir550@gmail.com">nsrshishir550@gmail.com</a> | Phone: +8801827512928
-            </p>
-            <p style="text-align: center;">
-                LinkedIn: <a href="https://www.linkedin.com/in/nsrshishir" target="_blank">linkedin.com/in/nsrshishir</a> | GitHub: <a href="https://github.com/nsrshishir" target="_blank">github.com/nsrshishir</a>
-            </p>
-            <!-- A contact form could go here for a more interactive experience -->
-        </section>
-    </div>
-
-    <footer>
+    <section id="experience" style="background: var(--light);">
         <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/nsrshishir" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                <a href="https://github.com/nsrshishir" target="_blank" aria-label="GitHub">GitHub</a>
+            <div class="section-header">
+                <h2>Career History</h2>
+                <div class="line"></div>
             </div>
-            <p>&copy; 2023 Md Niaj Shahriar Shishir. All rights reserved.</p>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span>2024 - PRESENT</span>
+                        <h3>Team Lead & Architect</h3>
+                        <p>Metamorphosis Ltd.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span>2023 - 2024</span>
+                        <h3>Sr. Systems Engineer</h3>
+                        <p>Metamorphosis Ltd.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span>2022 - 2023</span>
+                        <h3>Full Stack Developer</h3>
+                        <p>Metamorphosis Ltd.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span>2020 - 2021</span>
+                        <h3>Software Engineer</h3>
+                        <p>MetaKave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h2>NIAJ<span>.</span>SHISHIR</h2>
+                    <p>Strategic, compliant, and high-performance solutions for global enterprise leaders.</p>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/in/nsrshishir" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/nsrshishir" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:nsrshishir550@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Specialization</h4>
+                    <ul>
+                        <li><a href="#">Odoo v19 Architect</a></li>
+                        <li><a href="#">Fintech Lead</a></li>
+                        <li><a href="#">MERN Stack</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Md Niaj Shahriar Shishir. Engineered for Excellence.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+    </script>
 </body>
 </html>

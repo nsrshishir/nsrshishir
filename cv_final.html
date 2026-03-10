@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Niaj Shahriar Shishir - Odoo Architect & Full Stack Lead</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --cxo-navy: #0f172a;
+            --cxo-blue: #2563eb;
+            --cxo-slate: #475569;
+            --cxo-light: #f8fafc;
+            --accent: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+            line-height: 1.4;
+            background: #fff;
+            width: 210mm;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .page-1 {
+            page-break-after: always;
+        }
+
+        /* Hero Header - Fixed Overlap */
+        .hero {
+            background: var(--cxo-navy);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Changed to flex-start */
+            width: 100%;
+            gap: 20px;
+        }
+
+        .hero-left-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1; /* Allows name to take available space */
+        }
+
+        .hero-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            object-position: top;
+            flex-shrink: 0;
+        }
+
+        .hero-left h1 {
+            margin: 0;
+            font-size: 24pt; /* Reduced slightly to prevent overlap */
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .hero-left p {
+            margin: 4px 0 0;
+            font-size: 13pt;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-right {
+            text-align: right;
+            font-size: 9pt;
+            opacity: 0.95;
+            line-height: 1.5;
+            flex-shrink: 0; /* Prevents contact info from shrinking/overlapping */
+            min-width: 180px;
+        }
+
+        .hero-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--cxo-blue);
+            color: white;
+            display: flex;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-value {
+            font-size: 15pt;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 7pt;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Main Layout */
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 225px;
+            background: var(--cxo-light);
+            padding: 20px 25px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar h2 {
+            font-size: 10pt;
+            color: var(--cxo-navy);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--cxo-blue);
+            padding-bottom: 4px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h2:first-child { margin-top: 0; }
+
+        .skill-group { margin-bottom: 12px; }
+        .skill-group strong { display: block; font-size: 9pt; color: #1e293b; margin-bottom: 2px; }
+        .skill-group span { font-size: 8pt; color: var(--cxo-slate); display: block; line-height: 1.3; }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 20px 40px 20px 30px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--cxo-navy);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background: #e2e8f0;
+            flex: 1;
+            margin-left: 12px;
+        }
+
+        .summary-text {
+            font-size: 9.5pt;
+            color: #334155;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 18px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-row h3 {
+            margin: 0;
+            font-size: 11.5pt;
+            color: var(--cxo-navy);
+            font-weight: 700;
+        }
+
+        .exp-date {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--cxo-blue);
+        }
+
+        .exp-company {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--cxo-slate);
+            margin-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 16px;
+            margin: 0;
+        }
+
+        li {
+            font-size: 9pt;
+            margin-bottom: 3px;
+            color: #334155;
+        }
+
+        .footer {
+            padding: 10px 40px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 7.5pt;
+            color: var(--cxo-slate);
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .project-card {
+            flex: 1;
+            min-width: 45%;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid var(--cxo-blue);
+        }
+
+        .project-card h4 {
+            margin: 0 0 4px;
+            font-size: 10pt;
+            color: var(--cxo-navy);
+        }
+
+        .project-card p {
+            margin: 0;
+            font-size: 8.5pt;
+            color: var(--cxo-slate);
+            line-height: 1.3;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 -->
+    <div class="page page-1">
+        <div class="hero">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.jpeg" alt="Md Niaj Shahriar Shishir" class="hero-img">
+                <div class="hero-left">
+                    <h1>Md Niaj Shahriar Shishir</h1>
+                    <p>Odoo Architect & Full Stack Lead</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div><a href="mailto:nsrshishir550@gmail.com">nsrshishir550@gmail.com</a></div>
+                <div>+8801827512928</div>
+                <div>linkedin.com/in/nsrshishir</div>
+                <div>github.com/nsrshishir</div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">v12 - v19</span>
+                <span class="stat-label">Odoo Proficiency</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">12+</span>
+                <span class="stat-label">Version Upgrades</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">125+</span>
+                <span class="stat-label">Total ERP Projects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">Worldwide</span>
+                <span class="stat-label">Payment Gateway Expo.</span>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="sidebar">
+                <h2>Strategic Expertise</h2>
+                <div class="skill-group">
+                    <strong>ERP Architecture</strong>
+                    <span>Odoo v12-19 (Enterprise/Community)</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Compliance & Tax</strong>
+                    <span>ZATCA Phase 2, NBR/DataSoft</span>
+                </div>
+                <div class="skill-group">
+                    <strong>API & Integration</strong>
+                    <span>REST, GraphQL, JSON-RPC, OAuth2</span>
+                </div>
+                <div class="skill-group">
+                    <strong>MERN & LAMP Stack</strong>
+                    <span>React, Node.js, PHP (Laravel), MySQL</span>
+                </div>
+                <div class="skill-group">
+                    <strong>DevOps & Scaling</strong>
+                    <span>AWS, Odoo.sh, Docker, Bash</span>
+                </div>
+
+                <h2>Education</h2>
+                <div class="skill-group">
+                    <strong>Master of IT</strong>
+                    <span>Jahangirnagar University</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Bachelor of Science</strong>
+                    <span>SUST | Maths & CSE</span>
+                </div>
+
+                <h2>Credentials</h2>
+                <div class="skill-group">
+                    <strong>Odoo 17 Functional Cert.</strong>
+                    <span>Process Optimization Lead</span>
+                </div>
+                <div class="skill-group">
+                    <strong>IEEE Author</strong>
+                    <span>Data Processing Efficiency</span>
+                </div>
+
+                <h2>Contact & Links</h2>
+                <div class="skill-group">
+                    <span><strong>Location:</strong> Dhaka, BD</span>
+                    <span><strong>GitHub:</strong> /nsrshishir</span>
+                    <span><strong>Portfolio:</strong> nsrshishir.github.io</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section-header">
+                    <h2>Executive Summary</h2>
+                    <div class="line"></div>
+                </div>
+                <p class="summary-text">
+                    Strategic <strong>Odoo Architect & Full Stack Lead</strong> with a proven history of scaling complex ecosystems for <strong>82+ global clients</strong>. 
+                    Expert at bridging the gap between business requirements and high-performance solutions across <strong>Odoo (v12-19)</strong>, <strong>MERN</strong>, and <strong>LAMP</strong> stacks. 
+                    Specialized in <strong>Tax & Compliance Integrations (ZATCA Phase 2, NBR/DataSoft)</strong>, <strong>Odoo Version Upgrades (12+ projects)</strong>, 
+                    and <strong>Worldwide Payment Gateway Exposure</strong>, having integrated 13+ secure global providers (BNPL, Credit, Mobile) into ERP workflows. 
+                    Managed <strong>125+ total projects</strong>, driving operational ROI through advanced API design and seamless system synchronization.
+                </p>
+
+                <div class="section-header">
+                    <h2>Professional Leadership</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Team Lead & Sr. Software Architect</h3>
+                        <span class="exp-date">Oct 2024 - Present</span>
+                    </div>
+                    <div class="exp-company">Metamorphosis Ltd., Bangladesh</div>
+                    <ul>
+                        <li><strong>Worldwide Payment Orchestration:</strong> Engineering secure, high-volume integrations for global leaders including <strong>Afterpay, Zip, Laybuy, Genoapay, Humm, and Gem</strong> (NZ/Global) alongside <strong>SSLCommerz, bKash, and Nagad</strong> (BD).</li>
+                        <li><strong>Regulatory & Tax Compliance:</strong> Architected the integration of Odoo with <strong>ZATCA Phase 2 (E-invoicing)</strong> for Saudi Arabia and <strong>DataSoft (NBR-approved)</strong> software for Bangladesh.</li>
+                        <li><strong>Advanced Odoo Upgrades:</strong> Managed 12+ end-to-end version upgrades (v13-17, v14-18, v16-19) for both Community and Enterprise, ensuring zero data loss and 100% feature parity.</li>
+                        <li><strong>Odoo Ecosystem Evolution:</strong> Orchestrating 125+ total Odoo projects (v12-19), delivering custom modules that streamline finance, supply chain, and retail.</li>
+                        <li><strong>Advanced API Integration:</strong> Engineered 25+ robust API layers connecting Odoo with SAP, Magento, and international fintech platforms.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Sr. Odoo Systems Engineer</h3>
+                        <span class="exp-date">Oct 2023 - Sep 2024</span>
+                    </div>
+                    <div class="exp-company">Metamorphosis Ltd., Bangladesh</div>
+                    <ul>
+                        <li><strong>Fintech Innovation:</strong> Integrated <strong>NZ Click, NZ Post</strong>, and regional gateways into Odoo v16-18, handling complex BNPL (Buy Now Pay Later) logic.</li>
+                        <li><strong>Infrastructure Automation:</strong> Automated 300+ Odoo instance deployments, reducing setup time by 85% via custom shell scripting and Docker.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Md Niaj Shahriar Shishir | Odoo & Full Stack Lead | Page 1 of 2</div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="hero" style="padding: 15px 40px;">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.jpeg" alt="Niaj Shishir" class="hero-img" style="width: 70px; height: 70px;">
+                <div class="hero-left">
+                    <h1 style="font-size: 20pt;">Md Niaj Shahriar Shishir</h1>
+                </div>
+            </div>
+            <div class="hero-right">
+                <span style="color: var(--accent); font-weight: 700; font-size: 11pt; text-transform: uppercase;">Strategic Portfolio & Impact</span>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="content" style="padding-top: 15px;">
+                <div class="section-header">
+                    <h2>High-Impact Projects & Integrations</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>ZATCA & NBR Compliance</h4>
+                        <p>Architected seamless Odoo integrations with Saudi ZATCA Phase 2 (E-invoicing) and NBR-approved DataSoft accounting software.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Global BNPL Ecosystem</h4>
+                        <p>Integrated Afterpay, Zip, Laybuy, and Humm into Odoo for international retailers, managing complex installment and refund logic.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>MERN + Odoo Headless eCommerce</h4>
+                        <p>Built a high-performance React frontend for Odoo v17 using REST APIs, enabling sub-second page loads and mobile-first UX.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>SAP & ERP Middleware (LAMP)</h4>
+                        <p>Designed a Laravel-based bridge between Odoo and SAP for a major multinational, synchronizing 10k+ daily transactions securely.</p>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: 25px;">
+                    <h2>Technical Competencies & Strategy</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: flex; gap: 40px; margin-top: 8px;">
+                    <ul style="flex: 1; font-size: 9.5pt;">
+                        <li><strong>API-First Design:</strong> Specialized in REST/GraphQL endpoints for multi-system enterprise synchronization.</li>
+                        <li><strong>MERN/LAMP Proficiency:</strong> Building modern reactive UIs and maintaining robust legacy enterprise backends.</li>
+                        <li><strong>Data Integrity:</strong> Expert in PostgreSQL query optimization and ACID compliance for high-traffic environments.</li>
+                    </ul>
+                    <ul style="flex: 1; font-size: 9.5pt;">
+                        <li><strong>Security & Access:</strong> Implementing advanced record rules, OAuth2, and SSL for multi-tenant ERP safety.</li>
+                        <li><strong>Cloud Infrastructure:</strong> AWS management and CI/CD automation for Odoo.sh and staging-to-prod pipelines.</li>
+                        <li><strong>Open Source R&D:</strong> Active GitHub contributor to Odoo core modules (stock_account, l10n_bd).</li>
+                    </ul>
+                </div>
+
+                <div class="section-header" style="margin-top: 25px;">
+                    <h2>Research & Earlier Career Impact</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Performance Enhancement of Hadoop MapReduce</h3>
+                        <span class="exp-date">IEEE (2021)</span>
+                    </div>
+                    <p style="font-size: 9pt; color: #334155; margin: 0;">Developed the IMC algorithm, achieving a <strong>65% efficiency gain</strong> in data processing. Applied these principles to optimize large-scale Odoo database operations.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Software Engineer & Server Specialist | MetaKave</h3>
+                        <span class="exp-date">2020 - 2021</span>
+                    </div>
+                    <p style="font-size: 9pt; color: #334155; margin: 0;">Developed full-stack LAMP applications and managed AWS security for high-traffic enterprise platforms.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Executive (IT) | Big Boss Corporation</h3>
+                        <span class="exp-date">2017 - 2019</span>
+                    </div>
+                    <p style="font-size: 9pt; color: #334155; margin: 0;">Managed IT infrastructure for 200+ users, reporting to the Board for strategic technology decisions.</p>
+                </div>
+
+                <div style="margin-top: 25px; text-align: center; border: 1px dashed var(--cxo-blue); padding: 12px; border-radius: 8px; background: #f0f7ff;">
+                    <p style="font-size: 9.5pt; color: var(--cxo-navy); margin: 0; font-weight: 700;">
+                        Available for Senior Leadership roles in Odoo ERP Architecture and Full Stack Management.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Md Niaj Shahriar Shishir | Odoo & Full Stack Lead | Page 2 of 2</div>
+    </div>
+</body>
+</html>
