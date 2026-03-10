@@ -51,38 +51,39 @@
             page-break-after: always;
         }
 
-        /* Hero Header - Fixed Overlap */
+        /* Hero Header - Fixed for wkhtmltopdf compatibility */
         .hero {
+            background: #0f172a; /* Fallback for variables */
             background: var(--cxo-navy);
             color: white;
             padding: 25px 40px;
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Changed to flex-start */
             width: 100%;
-            gap: 20px;
         }
 
         .hero-left-wrapper {
             display: flex;
             align-items: center;
-            gap: 20px;
-            flex: 1; /* Allows name to take available space */
+            flex: 1;
         }
 
         .hero-img {
             width: 120px;
             height: 150px;
             border-radius: 12px;
+            border: 3px solid #38bdf8;
             border: 3px solid var(--accent);
-            object-fit: cover;
-            object-position: center 15%;
+            background-image: url('image_niaj_blue_suit.png');
+            background-size: cover;
+            background-position: center 15%;
             flex-shrink: 0;
+            margin-right: 20px; /* Replaces gap */
         }
 
         .hero-left h1 {
             margin: 0;
-            font-size: 24pt; /* Reduced slightly to prevent overlap */
+            font-size: 24pt;
             font-weight: 800;
             letter-spacing: -0.5px;
             line-height: 1.1;
@@ -91,6 +92,7 @@
         .hero-left p {
             margin: 4px 0 0;
             font-size: 13pt;
+            color: #38bdf8;
             color: var(--accent);
             font-weight: 600;
             text-transform: uppercase;
@@ -102,8 +104,9 @@
             font-size: 9pt;
             opacity: 0.95;
             line-height: 1.5;
-            flex-shrink: 0; /* Prevents contact info from shrinking/overlapping */
+            flex-shrink: 0;
             min-width: 180px;
+            margin-left: 20px; /* Replaces gap */
         }
 
         .hero-right a {
@@ -113,6 +116,7 @@
 
         /* Stats Bar */
         .stats-bar {
+            background: #2563eb;
             background: var(--cxo-blue);
             color: white;
             display: flex;
@@ -151,6 +155,7 @@
         /* Sidebar */
         .sidebar {
             width: 225px;
+            background: #f8fafc;
             background: var(--cxo-light);
             padding: 20px 25px;
             border-right: 1px solid #e2e8f0;
@@ -158,9 +163,11 @@
 
         .sidebar h2 {
             font-size: 10pt;
+            color: #0f172a;
             color: var(--cxo-navy);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border-bottom: 2px solid #2563eb;
             border-bottom: 2px solid var(--cxo-blue);
             padding-bottom: 4px;
             margin-top: 20px;
@@ -171,7 +178,7 @@
 
         .skill-group { margin-bottom: 12px; }
         .skill-group strong { display: block; font-size: 9pt; color: #1e293b; margin-bottom: 2px; }
-        .skill-group span { font-size: 8pt; color: var(--cxo-slate); display: block; line-height: 1.3; }
+        .skill-group span { font-size: 8pt; color: #475569; color: var(--cxo-slate); display: block; line-height: 1.3; }
 
         /* Content Area */
         .content {
@@ -188,6 +195,7 @@
         .section-header h2 {
             font-size: 14pt;
             font-weight: 700;
+            color: #0f172a;
             color: var(--cxo-navy);
             margin: 0;
             white-space: nowrap;
@@ -222,6 +230,7 @@
         .exp-row h3 {
             margin: 0;
             font-size: 11.5pt;
+            color: #0f172a;
             color: var(--cxo-navy);
             font-weight: 700;
         }
@@ -229,12 +238,14 @@
         .exp-date {
             font-size: 8.5pt;
             font-weight: 600;
+            color: #2563eb;
             color: var(--cxo-blue);
         }
 
         .exp-company {
             font-size: 9.5pt;
             font-weight: 600;
+            color: #475569;
             color: var(--cxo-slate);
             margin-bottom: 5px;
         }
@@ -256,6 +267,7 @@
             border-top: 1px solid #e2e8f0;
             text-align: center;
             font-size: 7.5pt;
+            color: #475569;
             color: var(--cxo-slate);
         }
 
@@ -263,28 +275,31 @@
         .project-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
             margin-top: 8px;
         }
 
         .project-card {
-            flex: 1;
-            min-width: 45%;
+            width: 48%; /* Replaces flex-basis/gap */
             background: #f8fafc;
             padding: 12px;
             border-radius: 6px;
+            border-left: 4px solid #2563eb;
             border-left: 4px solid var(--cxo-blue);
+            margin-bottom: 10px;
+            margin-right: 2%;
         }
 
         .project-card h4 {
             margin: 0 0 4px;
             font-size: 10pt;
+            color: #0f172a;
             color: var(--cxo-navy);
         }
 
         .project-card p {
             margin: 0;
             font-size: 8.5pt;
+            color: #475569;
             color: var(--cxo-slate);
             line-height: 1.3;
         }
@@ -295,7 +310,7 @@
     <div class="page page-1">
         <div class="hero">
             <div class="hero-left-wrapper">
-                <img src="image_niaj_blue_suit.png" alt="Md Niaj Shahriar Shishir" class="hero-img">
+                <div class="hero-img"></div>
                 <div class="hero-left">
                     <h1>Md Niaj Shahriar Shishir</h1>
                     <p>Odoo Architect & Full Stack Lead</p>
@@ -433,13 +448,13 @@
     <div class="page">
         <div class="hero" style="padding: 15px 40px;">
             <div class="hero-left-wrapper">
-                <img src="image_niaj_blue_suit.png" alt="Niaj Shishir" class="hero-img" style="width: 80px; height: 100px;">
+                <div class="hero-img" style="width: 80px; height: 100px; margin-right: 15px;"></div>
                 <div class="hero-left">
                     <h1 style="font-size: 20pt;">Md Niaj Shahriar Shishir</h1>
                 </div>
             </div>
             <div class="hero-right">
-                <span style="color: var(--accent); font-weight: 700; font-size: 11pt; text-transform: uppercase;">Strategic Portfolio & Impact</span>
+                <span style="color: #38bdf8; color: var(--accent); font-weight: 700; font-size: 11pt; text-transform: uppercase;">Strategic Portfolio & Impact</span>
             </div>
         </div>
 
@@ -473,8 +488,8 @@
                     <h2>Technical Competencies & Strategy</h2>
                     <div class="line"></div>
                 </div>
-                <div style="display: flex; gap: 40px; margin-top: 8px;">
-                    <ul style="flex: 1; font-size: 9.5pt;">
+                <div style="display: flex; margin-top: 8px;">
+                    <ul style="flex: 1; font-size: 9.5pt; margin-right: 20px;">
                         <li><strong>API-First Design:</strong> Specialized in REST/GraphQL endpoints for multi-system enterprise synchronization.</li>
                         <li><strong>MERN/LAMP Proficiency:</strong> Building modern reactive UIs and maintaining robust legacy enterprise backends.</li>
                         <li><strong>Data Integrity:</strong> Expert in PostgreSQL query optimization and ACID compliance for high-traffic environments.</li>
