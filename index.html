@@ -1,735 +1,1222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Niaj Shahriar Shishir | Odoo Architect & Full Stack Lead</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Md Niaj Shahriar Shishir | Head of Technology & Odoo Solution Architect</title>
+    <meta name="description" content="Portfolio of Md Niaj Shahriar Shishir - Head of Technology & Certified Odoo Consultant (Solution Architect by Practice) specializing in hyper-velocity team delivery (3-month scope in 2-3 weeks), local AI inference & CLI agents, 900+ custom hand-coded Odoo modules, 14+ Odoo Enterprise Upgrades, server traffic routing, and digital transformation.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
         :root {
-            --navy: #0f172a;
-            --blue: #2563eb;
-            --slate: #475569;
-            --light: #f8fafc;
-            --accent: #38bdf8;
-            --white: #ffffff;
+            /* Dark Theme (Default) */
+            --bg-main: #090d16;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --bg-nav: rgba(9, 13, 22, 0.85);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(56, 189, 248, 0.3);
+            
+            --accent-blue: #38bdf8;
+            --accent-indigo: #818cf8;
+            --accent-emerald: #34d399;
+            --accent-amber: #fbbf24;
+            --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+            --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
+            --badge-bg: rgba(56, 189, 248, 0.1);
+            --badge-text: #38bdf8;
+        }
+
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 1);
+            --bg-nav: rgba(248, 250, 252, 0.9);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-color: rgba(15, 23, 42, 0.08);
+            --border-glow: rgba(37, 99, 235, 0.3);
+            
+            --accent-blue: #2563eb;
+            --accent-indigo: #4f46e5;
+            --accent-emerald: #059669;
+            --accent-amber: #d97706;
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            --gradient-card: linear-gradient(180deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.03) 100%);
+            --shadow-glow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            --badge-bg: rgba(37, 99, 235, 0.08);
+            --badge-text: #2563eb;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #1e293b;
-            background-color: var(--white);
+            overflow-x: hidden;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, .logo {
+            font-family: 'Outfit', sans-serif;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Navigation */
         nav {
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
+            background: var(--bg-nav);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 76px;
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: var(--white);
+            color: var(--text-primary);
             text-decoration: none;
             letter-spacing: -0.5px;
-            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--accent-blue);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 28px;
         }
 
         nav ul li a {
-            color: var(--white);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--accent-blue);
         }
 
-        /* Mobile Menu Toggle */
-        .menu-toggle {
+        .theme-toggle {
+            background: var(--badge-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-blue);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .mobile-menu-btn {
             display: none;
-            color: var(--white);
+            background: none;
+            border: none;
+            color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001;
+        }
+
+        /* Buttons & Badges */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 26px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+        }
+
+        .btn-outline {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-glow);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 10px var(--accent-emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
         }
 
         /* Hero Section */
         .hero {
-            background: var(--navy);
-            padding: 140px 0 80px;
-            color: var(--white);
+            padding: 160px 0 100px;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
         }
 
-        .hero::after {
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--navy) 0%, rgba(15, 23, 42, 0) 100%), url('image_niaj_blue_suit.png') no-repeat center center/cover;
-            opacity: 0.4;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
             z-index: 1;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin: 20px 0;
             letter-spacing: -1px;
         }
 
-        .hero h1 span {
-            color: var(--accent);
+        .hero-text h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: clamp(1rem, 4vw, 1.25rem);
-            color: var(--slate);
-            margin-bottom: 40px;
-            max-width: 600px;
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            max-width: 620px;
+            line-height: 1.65;
         }
 
         .hero-btns {
             display: flex;
-            gap: 15px;
+            gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 40px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 6px 14px;
             border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
             text-align: center;
         }
 
-        .btn-primary {
-            background: var(--blue);
-            color: var(--white);
+        .hero-avatar {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center 15%;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            z-index: 2;
         }
 
-        .btn-outline {
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: var(--white);
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 15px -15px -15px 15px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 24px;
+            z-index: 1;
+            opacity: 0.3;
         }
 
-        /* Stats Section */
-        .stats {
-            background: var(--white);
-            padding: 60px 0;
-            border-bottom: 1px solid #f1f5f9;
+        /* Stats Bar */
+        .stats-section {
+            padding: 40px 0;
+            border-y: 1px solid var(--border-color);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 30px;
             text-align: center;
         }
 
         .stat-card h3 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 5px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
         }
 
         .stat-card p {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 700;
-            color: var(--slate);
-            letter-spacing: 1px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        /* Section Styling */
+        /* Sections Header */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-header {
-            margin-bottom: 50px;
             text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
 
         .section-header h2 {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-size: clamp(2rem, 4vw, 2.75rem);
             font-weight: 800;
-            color: var(--navy);
             margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
 
-        .section-header .line {
-            width: 60px;
-            height: 4px;
-            background: var(--blue);
-            margin: 0 auto;
-            border-radius: 2px;
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
-        /* About Section */
-        .about-grid {
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
         }
 
-        .about-img img {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            object-position: center 15%;
-            border-radius: 20px;
-            box-shadow: 15px 15px 0px var(--light);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .skill-card {
-            background: var(--light);
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+        .glass-card {
+            background: var(--bg-card);
+            background-image: var(--gradient-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .skill-card i {
-            font-size: 2rem;
-            color: var(--blue);
-            margin-bottom: 20px;
+        .glass-card:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
         }
 
-        .skill-card h4 {
-            font-size: 1.1rem;
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: var(--badge-bg);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .glass-card h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--navy);
+            margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
-        .skill-card ul {
+        .glass-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .feature-list {
             list-style: none;
         }
 
-        .skill-card ul li {
-            font-size: 0.9rem;
-            color: var(--slate);
-            margin-bottom: 8px;
+        .feature-list li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
         }
 
-        .skill-card ul li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--accent);
-        }
-
-        /* Projects Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        .project-img {
-            height: 200px;
-            background: var(--navy);
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 25px;
-        }
-
-        .project-info h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--navy);
-        }
-
-        .project-info p {
+        .feature-list li i {
+            color: var(--accent-emerald);
             font-size: 0.9rem;
-            color: var(--slate);
-            margin-bottom: 15px;
+            margin-top: 4px;
         }
 
-        .project-tags {
+        /* Project Cards */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
         }
 
-        .tag {
-            background: #f1f5f9;
-            color: var(--slate);
+        .project-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
             padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            background: var(--badge-bg);
+            color: var(--accent-blue);
         }
 
-        /* Experience Timeline */
+        /* Timeline */
         .timeline {
-            position: relative;
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
+            position: relative;
+            padding-left: 30px;
         }
 
-        .timeline::after {
+        .timeline::before {
             content: '';
             position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
             width: 2px;
-            background: #e2e8f0;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
+            background: var(--border-color);
         }
 
         .timeline-item {
-            padding: 10px 40px;
             position: relative;
-            width: 50%;
+            margin-bottom: 45px;
         }
 
-        .timeline-item::after {
-            content: '';
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
             position: absolute;
+            left: -30px;
+            top: 6px;
             width: 16px;
             height: 16px;
-            right: -8px;
-            background: var(--white);
-            border: 3px solid var(--blue);
-            top: 20px;
             border-radius: 50%;
-            z-index: 1;
+            background: var(--bg-main);
+            border: 3px solid var(--accent-blue);
+            box-shadow: 0 0 10px var(--accent-blue);
         }
-
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -8px; }
 
         .timeline-content {
-            padding: 20px;
-            background: var(--light);
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
         }
 
-        .timeline-content h3 {
-            font-size: 1rem;
-            color: var(--blue);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content span {
-            font-size: 0.8rem;
+        .timeline-date {
+            display: inline-block;
+            font-size: 0.82rem;
             font-weight: 700;
-            color: var(--slate);
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
 
-        /* Footer */
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        /* Footer & Contact */
         footer {
-            background: var(--navy);
-            color: var(--white);
-            padding: 60px 0 30px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
-        .footer-about h2 { font-size: 1.25rem; margin-bottom: 15px; }
-        .footer-about p { color: var(--slate); font-size: 0.9rem; margin-bottom: 20px; }
-        .footer-links h4 { margin-bottom: 15px; font-size: 1rem; }
-        .footer-links ul { list-style: none; }
-        .footer-links ul li { margin-bottom: 10px; }
-        .footer-links ul li a { color: var(--slate); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
-        .footer-links ul li a:hover { color: var(--accent); }
-
-        .social-icons { display: flex; gap: 15px; }
-        .social-icons a {
-            width: 40px; height: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; color: var(--white); transition: all 0.3s ease;
+        .footer-info h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
-        .social-icons a:hover { background: var(--blue); transform: translateY(-3px); }
+
+        .footer-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-blue);
+        }
 
         .copyright {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            color: var(--slate);
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
             font-size: 0.85rem;
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
-            .hero::after { width: 100%; opacity: 0.2; }
-            .hero-content { text-align: center; margin: 0 auto; }
-            .hero-btns { justify-content: center; }
-            .about-grid { grid-template-columns: 1fr; }
-            .timeline::after { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
-            .timeline-item::after { left: 12px; }
-            .right { left: 0%; }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-btns, .hero-tags {
+                justify-content: center;
+            }
+            .hero-avatar {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
             nav ul {
+                display: none;
                 position: fixed;
-                top: 70px;
-                left: -100%;
+                top: 76px;
+                left: 0;
                 width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--navy);
+                background: var(--bg-main);
+                border-bottom: 1px solid var(--border-color);
                 flex-direction: column;
-                padding: 40px;
-                transition: 0.4s;
+                padding: 24px;
+                gap: 18px;
                 text-align: center;
             }
-            nav ul.active { left: 0; }
-            .btn { width: 100%; }
-            .hero { padding-top: 120px; }
+            nav ul.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero {
+                padding-top: 120px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Fixed Header -->
     <nav>
         <div class="container">
-            <a href="#" class="logo">NIAJ<span>.</span>SHISHIR</a>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <a href="#" class="logo">
+                <i class="fa-solid fa-code-branch" style="color: var(--accent-blue);"></i>
+                NIAJ<span>.</span>SHISHIR
+            </a>
+            <div class="nav-right">
+                <ul id="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#e3-framework">E3 Framework</a></li>
+                    <li><a href="#competencies">Competencies</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#timeline">Career</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-btn" title="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <ul id="nav-list">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Portfolio</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Odoo <span>Architect</span> & Full Stack Lead</h1>
-                <p>Strategic ERP implementation and architectural leadership across v12-v19. Specialized in high-performance API ecosystems and global fintech integrations.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">View Portfolio</a>
-                    <a href="Md_Niaj_Shahriar_Shishir_Odoo_FullStack_Architect.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        Creator of Agentic E3 Framework & Odoo Solution Architect
+                    </div>
+                    <h1>Engineering <span class="highlight">AI-Powered</span> & Scalable ERP Architectures</h1>
+                    <p>
+                        Empowering enterprise leaders to scale operations, accelerate ROI, and eliminate technical debt through strategic ERP architecture and AI-driven automation. Pioneer of the <strong>Agentic E3 Framework</strong> for AI software quality evaluation, supported by building high-efficiency developer teams delivering <strong>3 months of complete work in 2–3 weeks</strong>. Certified Odoo Consultant (Solution Architect by Practice) with <strong>900+ hand-coded custom Odoo modules</strong>, 14+ major Enterprise upgrades, local AI inference & CLI Agents, and strategic worker isolation.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fa-solid fa-layer-group"></i> Explore Projects
+                        </a>
+                        <a href="Md_Niaj_Shahriar_Shishir_Odoo_FullStack_Architect.pdf" class="btn btn-outline" download>
+                            <i class="fa-solid fa-file-pdf" style="color: var(--accent-blue);"></i> Download CV (PDF)
+                        </a>
+                    </div>
+                    <div class="hero-tags">
+                        <span class="tag-pill"><i class="fa-solid fa-gem" style="color: var(--accent-indigo);"></i> Agentic E3 Framework Author</span>
+                        <span class="tag-pill"><i class="fa-solid fa-bolt" style="color: var(--accent-amber);"></i> 3-Mo. Work Delivered in 2-3 Wks.</span>
+                        <span class="tag-pill"><i class="fa-solid fa-microchip" style="color: var(--accent-indigo);"></i> Local AI Inference & CLI Agents</span>
+                        <span class="tag-pill"><i class="fa-solid fa-code" style="color: var(--accent-emerald);"></i> 900+ Hand-Coded Odoo Modules</span>
+                        <span class="tag-pill"><i class="fa-solid fa-boxes-stacked" style="color: var(--accent-blue);"></i> 14+ Odoo Enterprise Upgrades (v13-v19)</span>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="image_niaj_blue_suit.png" alt="Md Niaj Shahriar Shishir" class="hero-avatar">
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="stats">
+    <!-- Metrics Bar -->
+    <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>125+</h3>
-                    <p>ERP Projects</p>
+                    <h3>2-3 Wks</h3>
+                    <p>For 3-Month Work Scope</p>
                 </div>
                 <div class="stat-card">
-                    <h3>82+</h3>
-                    <p>Global Clients</p>
+                    <h3>900+</h3>
+                    <p>Hand-Coded Odoo Modules</p>
                 </div>
                 <div class="stat-card">
-                    <h3>12+</h3>
-                    <p>Odoo Upgrades</p>
+                    <h3>14+</h3>
+                    <p>Enterprise Odoo Upgrades</p>
                 </div>
                 <div class="stat-card">
-                    <h3>7+</h3>
-                    <p>Years Experience</p>
+                    <h3>85+</h3>
+                    <p>Global & Domestic Clients</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- E3 Framework Showcase Section -->
+    <section id="e3-framework" style="background: rgba(0,0,0,0.02);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Agentic E3 Framework</h2>
+                <p>Why it matters: A gold-standard quality evaluation methodology ensuring AI agents and enterprise platforms produce zero-defect, high-performance software.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <div class="card-icon" style="color: var(--accent-blue);"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>1. Effective</h3>
+                    <p><strong>Functional Truth & Business Accuracy:</strong> Ensures code completely solves the problem, satisfies all business logic constraints, handles edge cases gracefully, and passes strict empirical verification without hallucinations.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon" style="color: var(--accent-amber);"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>2. Efficient</h3>
+                    <p><strong>Performance & Resource Optimization:</strong> Eliminates database N+1 queries, minimizes token consumption in LLM workflows, enforces low-spec single-server memory recycling, and achieves sub-second response times.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon" style="color: var(--accent-emerald);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>3. Elegant</h3>
+                    <p><strong>Clean Architecture & Zero Technical Debt:</strong> Enforces modular component boundaries, modern framework patterns (Odoo 19 guidelines, OWL 2, React), self-documenting code, and long-term maintainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Strategic Leadership & Vision Section -->
     <section id="about">
         <div class="container">
             <div class="section-header">
-                <h2>Strategy & Code</h2>
-                <div class="line"></div>
+                <h2>Strategic Leadership & Vision</h2>
+                <p>Bridging complex enterprise compliance with high-performance code, autonomous AI workflows, and mobile ecosystems.</p>
             </div>
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="image_niaj_blue_suit.png" alt="Niaj Shishir">
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-building-user"></i></div>
+                    <h3>Head of Technology</h3>
+                    <p>Leading technology strategy, ERP architecture, mobile engineering, and DevOps infrastructure at <strong>Metamorphosis Ltd.</strong>, a top Odoo Silver Partner delivering solutions across BD, NZ, KSA, Spain, and South Sudan.</p>
                 </div>
-                <div class="about-text">
-                    <p style="margin-bottom: 20px;">
-                        I am a senior Odoo Architect and Full Stack Lead dedicated to building high-performance, compliant, and scalable enterprise ecosystems. My approach combines deep technical mastery of the <strong>Odoo framework (v12-v19)</strong> with a strategic focus on business ROI.
-                    </p>
-                    <p style="margin-bottom: 20px;">
-                        With over <strong>125 successful implementations</strong>, I've mastered the art of bridging complex regulatory requirements—like <strong>ZATCA Phase 2</strong> and <strong>NBR compliance</strong>.
-                    </p>
-                    <a href="#contact" class="btn btn-primary">Start a Project</a>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Agentic E3 Framework Author</h3>
+                    <p>Pioneered the Effective, Efficient, Elegant software quality evaluation standard to benchmark AI agent outputs and human code for zero-defect enterprise architecture.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Hyper-Velocity Delivery & Local AI</h3>
+                    <p>Building high-velocity developer teams delivering 3 months of complete work in 2-3 weeks using local AI inference (vLLM/Ollama), CLI AI Agents, and streamlined delivery pipelines.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>Server Optimization & Traffic Routing</h3>
+                    <p>Architecting Nginx reverse proxy upstream routing for Gunicorn worker isolation—separating internal back-office administrative staff load from high-volume public website/e-commerce traffic.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
+                    <h3>Odoo Database MCP Server</h3>
+                    <p>Engineered a universal Model Context Protocol (MCP) server for Odoo database schema and ORM, allowing desktop and enterprise AI agents to inspect databases and automate tasks in natural language.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>6-Milestone Delivery Model</h3>
+                    <p>Standardizing a 6-milestone operational readiness model (40/12/12/12/12/12 payment split, Go-Live at M4) ensuring predictable cash flow, transparent progress, and strict UAT quality control.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" style="background: var(--light);">
+    <!-- Core Competencies -->
+    <section id="competencies">
         <div class="container">
             <div class="section-header">
                 <h2>Core Expertise</h2>
-                <div class="line"></div>
+                <p>Proven technical capabilities across enterprise ERP, AI engineering, mobile application development, and cloud infrastructure.</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-layer-group"></i>
-                    <h4>ERP Architecture</h4>
-                    <ul>
-                        <li>Odoo v12-v19 Expert</li>
-                        <li>SaaS Orchestration</li>
-                        <li>ORM Optimization</li>
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Local AI Inference, CLI Agents & High Velocity</h3>
+                    <p>Deploying privacy-focused local LLMs, CLI agent workflows, and building teams that deliver 3-month scopes in 2-3 weeks.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Local LLM Inference (vLLM, Ollama, llama.cpp)</li>
+                        <li><i class="fa-solid fa-check"></i> CLI AI Agents (Antigravity, Cline, Puku, MCP)</li>
+                        <li><i class="fa-solid fa-check"></i> 3-Month Work Delivered in 2-3 Weeks</li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-credit-card"></i>
-                    <h4>Global Fintech</h4>
-                    <ul>
-                        <li>13+ Payment Gateways</li>
-                        <li>International BNPL</li>
-                        <li>ZATCA & NBR</li>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>900+ Hand-Coded Odoo Custom Modules</h3>
+                    <p>Extensive hands-on engineering crafting 900+ custom Odoo modules across themes, automations, and 3rd-party APIs.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Custom Odoo Themes & UI UX Frameworks</li>
+                        <li><i class="fa-solid fa-check"></i> Business Process Automation & Workflow Engines</li>
+                        <li><i class="fa-solid fa-check"></i> New Business Unit Onboarding & 3rd-Party APIs</li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h4>Full Stack Synergy</h4>
-                    <ul>
-                        <li>Modern MERN Stack</li>
-                        <li>Enterprise LAMP</li>
-                        <li>REST & GraphQL</li>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <h3>Odoo Enterprise Upgrades (v13.0 to v19.0)</h3>
+                    <p>Mastery of Odoo core ORM, OWL 2, and 14+ Enterprise Edition database upgrades across multi-version steps.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> 14+ Enterprise Projects (v13-v17, v14-v19, v16-v19)</li>
+                        <li><i class="fa-solid fa-check"></i> Spanish Textile Enterprise Odoo v19 Upgrade</li>
+                        <li><i class="fa-solid fa-check"></i> Structural Data Retention & Dummy Modules</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <h3>Engineering Team Leadership & App R&D</h3>
+                    <p>Leading developer teams to build industry-specific Odoo apps and executing frictionless project deliveries.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Developer Mentorship & Code Quality Audits</li>
+                        <li><i class="fa-solid fa-check"></i> Vertical Industry Apps (Manufacturing, POS, Textile)</li>
+                        <li><i class="fa-solid fa-check"></i> 6-Milestone Delivery Model for Predictable Launch</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3>NZ Marketplace & E-Commerce Integration</h3>
+                    <p>Architecting real-time multi-channel product catalog, inventory stock, and order sync engines for APAC retail platforms.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Kogan Marketplace API Integration</li>
+                        <li><i class="fa-solid fa-check"></i> Tradevine Multichannel Inventory & Order Sync</li>
+                        <li><i class="fa-solid fa-check"></i> BNPL & APAC Regional Logistics Sync</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3>Server Optimization & Traffic Routing</h3>
+                    <p>Strategic traffic routing and Gunicorn worker isolation to prevent backend slowdowns during traffic surges.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> Back-Office vs. Public Website Worker Isolation</li>
+                        <li><i class="fa-solid fa-check"></i> Nginx Upstream Reverse Proxy & Longpolling Isolation</li>
+                        <li><i class="fa-solid fa-check"></i> Low-Spec Single Server Hardware Tuning (4GB RAM)</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <h3>Odoo Dashboards & Query Optimization</h3>
+                    <p>Building reactive OWL 2 dashboards and Odoo Spreadsheet reports tuned with high-performance SQL aggregation.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> OWL 2 Reactive Dashboards & KPI Widgets</li>
+                        <li><i class="fa-solid fa-check"></i> Odoo Spreadsheet Executive Reports</li>
+                        <li><i class="fa-solid fa-check"></i> `_read_group` Aggregation & Compute Caching</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon"><i class="fa-solid fa-route"></i></div>
+                    <h3>Sales Force Automation & Mobile Ecosystems</h3>
+                    <p>Architecting Odoo-backed mobile field apps with OpenStreetMap route tracking, offline queue sync, and hybrid push notifications.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check"></i> OpenStreetMap Route Tracking & Geo-Fencing</li>
+                        <li><i class="fa-solid fa-check"></i> Limited Offline Transaction Queueing & Sync</li>
+                        <li><i class="fa-solid fa-check"></i> Hybrid Odoo Bus + Firebase Cloud Messaging</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
+    <!-- Projects Section -->
+    <section id="projects" style="background: rgba(0,0,0,0.02);">
         <div class="container">
             <div class="section-header">
-                <h2>Selected Impact</h2>
-                <div class="line"></div>
+                <h2>Featured Innovations</h2>
+                <p>Key technical projects engineered for high reliability, strict compliance, and business growth.</p>
             </div>
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-img"><img src="img/payment-gateway-integration.jpg" alt="ZATCA"></div>
-                    <div class="project-info">
-                        <h4>Regulatory Engine</h4>
-                        <p>Integration of Odoo with Saudi ZATCA Phase 2 and NBR-approved systems.</p>
-                        <div class="project-tags">
-                            <span class="tag">Compliance</span>
-                            <span class="tag">Odoo v17</span>
-                        </div>
+            <div class="cards-grid">
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Local AI Inference & CLI Agent Framework</h3>
+                        <p>Engineered zero-latency, privacy-compliant local LLM inference pipelines, quantization tuning, and CLI AI Agent workflows (Antigravity, Cline, Odoo MCP) for hyper-speed software development.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Local AI Inference</span>
+                        <span class="project-tag">CLI AI Agents</span>
+                        <span class="project-tag">vLLM / Ollama</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img"><img src="img/ecomdeveloper.jpeg" alt="Headless"></div>
-                    <div class="project-info">
-                        <h4>Headless Odoo</h4>
-                        <p>High-performance React frontend for Odoo v18, reducing load times by 70%.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">UX</span>
-                        </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                        <h3>Odoo Enterprise Upgrade Suite (v13.0 to v19.0)</h3>
+                        <p>Executed 14+ major Odoo Enterprise database upgrades across v13.0 through v19.0 (including multi-step migrations: v13-v17, v14-v19, v16-v19), preserving custom modules and historical accounting data.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">14+ Enterprise Upgrades</span>
+                        <span class="project-tag">v13 to v19</span>
+                        <span class="project-tag">Zero Data Loss</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img"><img src="img/open-source-contibution.jpg" alt="Automation"></div>
-                    <div class="project-info">
-                        <h4>SaaS Deployment</h4>
-                        <p>Automated orchestration for 300+ Odoo instances using Bash and Docker.</p>
-                        <div class="project-tags">
-                            <span class="tag">DevOps</span>
-                            <span class="tag">AWS</span>
-                        </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <h3>NZ Marketplace Integration Suite (Kogan & Tradevine)</h3>
+                        <p>Architected real-time multi-channel product catalog, stock inventory, and order synchronization connecting Odoo ERP backend with major New Zealand marketplaces Kogan and Tradevine.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Kogan API</span>
+                        <span class="project-tag">Tradevine Sync</span>
+                        <span class="project-tag">NZ E-Commerce</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>Strategic Odoo Traffic Routing & Worker Isolation</h3>
+                        <p>Implemented Nginx reverse proxy upstream isolation separating back-office administrative Gunicorn workers from public e-commerce web traffic, ensuring zero backend latency during sales surges.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">Nginx Routing</span>
+                        <span class="project-tag">Worker Isolation</span>
+                        <span class="project-tag">High Availability</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Odoo Executive Dashboards & Query Optimizer</h3>
+                        <p>Engineered reactive OWL 2 & Spreadsheet KPI dashboards backed by PostgreSQL `_read_group` aggregations and compute caching, delivering sub-second reporting over multi-million record sets.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">OWL 2 Dashboards</span>
+                        <span class="project-tag">_read_group</span>
+                        <span class="project-tag">Spreadsheet KPI</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+                        <h3>Agentic E3 Software Quality Framework</h3>
+                        <p>Developed a comprehensive software quality evaluation framework (Effective, Efficient, Elegant) to audit AI agent generated code and enterprise architectures, ensuring zero hallucinations and clean code principles.</p>
+                    </div>
+                    <div class="project-meta">
+                        <span class="project-tag">E3 Framework</span>
+                        <span class="project-tag">AI Code Quality</span>
+                        <span class="project-tag">Benchmark</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" style="background: var(--light);">
+    <!-- Career Timeline -->
+    <section id="timeline">
         <div class="container">
             <div class="section-header">
-                <h2>Career History</h2>
-                <div class="line"></div>
+                <h2>Career Leadership</h2>
+                <p>A history of technical excellence, organizational growth, and high-impact systems engineering.</p>
             </div>
             <div class="timeline">
-                <div class="timeline-item left">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span>2024 - PRESENT</span>
-                        <h3>Team Lead & Architect</h3>
-                        <p>Metamorphosis Ltd.</p>
+                        <span class="timeline-date">Feb 2026 – Present</span>
+                        <h3 class="timeline-title">Head of Technology & Lead Architect</h3>
+                        <div class="timeline-company">Metamorphosis Ltd. | Dhaka, Bangladesh</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-notch"></i> Directing high-efficiency developer teams delivering 3 months of complete enterprise work in 2-3 weeks with near-100% success rates.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Architecting local AI inference, local model deployment/quantization, local AI tools, and CLI agentic workflows (Antigravity, Cline, Puku, Odoo MCP).</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Personally engineering high-complexity R&D modules, custom themes, business unit integrations, and 3rd-party application APIs.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Directed 14+ Odoo Enterprise Edition database upgrades spanning v13.0 to v19.0 (v13-v17, v14-v19, v16-v19) with zero data loss.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Architected strategic Odoo traffic routing and worker isolation (back-office vs. public e-commerce web traffic) using Nginx upstreams.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Created the Agentic E3 Framework (Effective, Efficient, Elegant) for AI code quality and software evaluation.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Managed 135+ total Odoo projects and 85+ Global & Domestic client accounts (BD, NZ, KSA, Spain, South Sudan).</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="timeline-item right">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span>2023 - 2024</span>
-                        <h3>Sr. Systems Engineer</h3>
-                        <p>Metamorphosis Ltd.</p>
+                        <span class="timeline-date">Oct 2023 – Jan 2026</span>
+                        <h3 class="timeline-title">Sr. Odoo Systems Engineer & DevOps Lead</h3>
+                        <div class="timeline-company">Metamorphosis Ltd. | Dhaka, Bangladesh</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-notch"></i> Hand-coded custom Odoo themes, business process automations, new business unit integrations, and 3rd-party APIs.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Engineered real-time marketplace integrations for New Zealand's top platforms Kogan and Tradevine alongside BNPL and logistics APIs.</li>
+                            <li><i class="fa-solid fa-circle-notch"></i> Automated 300+ Odoo instance deployments via Docker and Bash scripting for rapid client onboarding.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="timeline-item left">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span>2022 - 2023</span>
-                        <h3>Full Stack Developer</h3>
-                        <p>Metamorphosis Ltd.</p>
+                        <span class="timeline-date">2022 – Sep 2023</span>
+                        <h3 class="timeline-title">Full Stack Developer</h3>
+                        <div class="timeline-company">Metamorphosis Ltd. | Dhaka, Bangladesh</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-notch"></i> Hand-coded hundreds of custom Odoo modules (Python, QWeb XML), integrated regional payment gateways, and optimized PostgreSQL queries.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="timeline-item right">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span>2020 - 2021</span>
-                        <h3>Software Engineer</h3>
-                        <p>MetaKave</p>
+                        <span class="timeline-date">2020 – 2021</span>
+                        <h3 class="timeline-title">Software Engineer & Server Specialist</h3>
+                        <div class="timeline-company">MetaKave | Dhaka, Bangladesh</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-notch"></i> Built LAMP full-stack enterprise applications, managed AWS cloud servers, and configured Nginx reverse proxies.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jun 2017 – Sep 2019</span>
+                        <h3 class="timeline-title">IT Executive</h3>
+                        <div class="timeline-company">Aptech Industries | Dhaka, Bangladesh</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle-notch"></i> Managed enterprise IT infrastructure, system administration, network security, and internal IT operations support.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer / Contact -->
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-about">
-                    <h2>NIAJ<span>.</span>SHISHIR</h2>
-                    <p>Strategic, compliant, and high-performance solutions for global enterprise leaders.</p>
-                    <div class="social-icons">
-                        <a href="https://linkedin.com/in/nsrshishir" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/nsrshishir" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="mailto:nsrshishir550@gmail.com"><i class="fas fa-envelope"></i></a>
+                <div class="footer-info">
+                    <h3>NIAJ<span>.</span>SHISHIR</h3>
+                    <p>Head of Technology & Certified Odoo Consultant (Solution Architect by Practice). Strategic, compliant, and high-performance solutions for global enterprises.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/nsrshishir" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/nsrshishir" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:niaj@metamorphosis.com.bd" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Navigation</h4>
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
                     <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Portfolio</a></li>
+                        <li><a href="mailto:niaj@metamorphosis.com.bd"><i class="fa-solid fa-paper-plane" style="color: var(--accent-blue);"></i> niaj@metamorphosis.com.bd</a></li>
+                        <li><a href="mailto:nsrshishir550@gmail.com"><i class="fa-solid fa-envelope" style="color: var(--accent-blue);"></i> nsrshishir550@gmail.com</a></li>
+                        <li><a href="#"><i class="fa-solid fa-location-dot" style="color: var(--accent-blue);"></i> Mirpur DOHS, Dhaka 1216</a></li>
+                        <li><a href="https://www.metamorphosis.com.bd" target="_blank"><i class="fa-solid fa-globe" style="color: var(--accent-blue);"></i> metamorphosis.com.bd</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Specialization</h4>
+                <div class="footer-col">
+                    <h4>Specializations</h4>
                     <ul>
-                        <li><a href="#">Odoo v19 Architect</a></li>
-                        <li><a href="#">Fintech Lead</a></li>
-                        <li><a href="#">MERN Stack</a></li>
+                        <li><a href="#">Agentic E3 Framework Author</a></li>
+                        <li><a href="#">Local AI Inference & CLI Agents</a></li>
+                        <li><a href="#">3-Month Scope in 2-3 Wks Delivery</a></li>
+                        <li><a href="#">900+ Hand-Coded Odoo Modules</a></li>
+                        <li><a href="#">Odoo Enterprise Upgrades (v13-v19)</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2026 Md Niaj Shahriar Shishir. Engineered for Excellence.</p>
+                <p>&copy; 2026 Md Niaj Shahriar Shishir. Engineered for Excellence with WeasyPrint & Modern Web Tech.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Script -->
     <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
+        // Theme Switcher Logic
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = themeBtn.querySelector('i');
+        
+        // Load saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
 
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
         });
 
-        // Close menu on link click
-        document.querySelectorAll('#nav-list a').forEach(link => {
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+                themeBtn.title = 'Switch to Light Mode';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+                themeBtn.title = 'Switch to Dark Mode';
+            }
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = menuBtn.querySelector('i');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
+                menuIcon.className = 'fa-solid fa-xmark';
+            } else {
+                menuIcon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Close mobile menu when clicking nav link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-xmark');
+                navMenu.classList.remove('active');
+                menuIcon.className = 'fa-solid fa-bars';
             });
         });
     </script>
