@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Niaj Shahriar Shishir - Senior Full Stack Odoo Developer &amp; Lead Engineer</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --cxo-navy: #0f172a;
+            --cxo-blue: #2563eb;
+            --cxo-slate: #475569;
+            --cxo-light: #f8fafc;
+            --accent: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+            line-height: 1.34;
+            background: #fff;
+            width: 210mm;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .page-1 {
+            page-break-after: always;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: var(--cxo-navy);
+            color: white;
+            padding: 13px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .hero-left-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .hero-img {
+            width: 88px;
+            height: 110px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+            object-position: center 15%;
+            flex-shrink: 0;
+        }
+
+        .hero-left h1 {
+            margin: 0;
+            font-size: 18.5pt;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero-left p {
+            margin: 3px 0 0;
+            font-size: 10pt;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-right {
+            text-align: right;
+            font-size: 8pt;
+            opacity: 0.95;
+            line-height: 1.35;
+            flex-shrink: 0;
+        }
+
+        .hero-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-right .portfolio-link {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--cxo-blue);
+            color: white;
+            display: flex;
+            width: 100%;
+            padding: 6px 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-value {
+            font-size: 11.5pt;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 6.2pt;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* Main Layout */
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 205px;
+            background: var(--cxo-light);
+            padding: 10px 12px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar h2 {
+            font-size: 8.3pt;
+            color: var(--cxo-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--cxo-blue);
+            padding-bottom: 2px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .sidebar h2:first-child { margin-top: 0; }
+
+        .skill-group { margin-bottom: 5px; }
+        .skill-group strong { display: block; font-size: 8pt; color: #1e293b; margin-bottom: 1px; }
+        .skill-group span { font-size: 7.1pt; color: var(--cxo-slate); display: block; line-height: 1.18; }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 10px 20px 10px 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .section-header h2 {
+            font-size: 11.2pt;
+            font-weight: 700;
+            color: var(--cxo-navy);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background: #e2e8f0;
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .summary-text {
+            font-size: 8.3pt;
+            color: #334155;
+            margin-bottom: 8px;
+            line-height: 1.34;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 6.5px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .exp-row h3 {
+            margin: 0;
+            font-size: 9.8pt;
+            color: var(--cxo-navy);
+            font-weight: 700;
+        }
+
+        .exp-date {
+            font-size: 7.8pt;
+            font-weight: 600;
+            color: var(--cxo-blue);
+        }
+
+        .exp-company {
+            font-size: 8.2pt;
+            font-weight: 600;
+            color: var(--cxo-slate);
+            margin-bottom: 2px;
+        }
+
+        ul {
+            padding-left: 12px;
+            margin: 0;
+        }
+
+        li {
+            font-size: 7.9pt;
+            margin-bottom: 1.5px;
+            color: #334155;
+            line-height: 1.24;
+        }
+
+        .footer {
+            padding: 4px 28px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 7.2pt;
+            color: var(--cxo-slate);
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .project-card {
+            flex: 1;
+            min-width: 45%;
+            background: #f8fafc;
+            padding: 6px 8px;
+            border-radius: 5px;
+            border-left: 3px solid var(--cxo-blue);
+        }
+
+        .project-card h4 {
+            margin: 0 0 2px;
+            font-size: 8.6pt;
+            color: var(--cxo-navy);
+        }
+
+        .project-card p {
+            margin: 0;
+            font-size: 7.6pt;
+            color: var(--cxo-slate);
+            line-height: 1.22;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 -->
+    <div class="page page-1">
+        <div class="hero">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.png" alt="Md Niaj Shahriar Shishir" class="hero-img">
+                <div class="hero-left">
+                    <h1>Md Niaj Shahriar Shishir</h1>
+                    <p>Senior Full Stack Odoo Developer</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div><a href="https://nsrshishir.github.io/nsrshishir/" class="portfolio-link" target="_blank">nsrshishir.github.io/nsrshishir</a></div>
+                <div><a href="mailto:niaj@metamorphosis.com.bd">niaj@metamorphosis.com.bd</a></div>
+                <div><a href="mailto:nsrshishir550@gmail.com">nsrshishir550@gmail.com</a></div>
+                <div>+8801827512928 | Dhaka, BD</div>
+                <div>linkedin.com/in/nsrshishir</div>
+                <div>github.com/nsrshishir</div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">900+ Modules</span>
+                <span class="stat-label">Hand-Coded Custom Apps</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">Odoo v13 - v19</span>
+                <span class="stat-label">Enterprise Multi-Upgrades</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">OWL 2 &amp; Python</span>
+                <span class="stat-label">Full Stack ORM &amp; Frontend</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">Local AI &amp; CLI</span>
+                <span class="stat-label">Agentic E3 Code Quality</span>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="sidebar">
+                <h2>Odoo Engineering Stack</h2>
+                <div class="skill-group">
+                    <strong>Languages &amp; Core</strong>
+                    <span>Python 3.10-3.12, JavaScript (ES6+), OWL 2, QWeb XML, SCSS</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Odoo ORM &amp; Backend</strong>
+                    <span>Batching, <code>_read_group</code>, Caching, Controllers, Mixins, APIs</span>
+                </div>
+                <div class="skill-group">
+                    <strong>900+ Hand-Coded Modules</strong>
+                    <span>Odoo Themes, Automations, Business Units, 3rd-Party APIs</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Enterprise Odoo Upgrades</strong>
+                    <span>14+ Projects (v13-v17, v14-v19, v16-v19 Multi-Step)</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Integrations &amp; Sync</strong>
+                    <span>Kogan API, Tradevine, Magento 2+, BNPL, Regional Payment Gateways</span>
+                </div>
+                <div class="skill-group">
+                    <strong>PostgreSQL &amp; Database</strong>
+                    <span>Query Optimization, Indexing, Multi-Table Joins, Data Retention</span>
+                </div>
+                <div class="skill-group">
+                    <strong>DevOps &amp; Server Tuning</strong>
+                    <span>Docker, Bash Scripts, Nginx Upstream Worker Isolation</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Local AI &amp; CLI Agents</strong>
+                    <span>Claude Code, Antigravity, Cline, Puku, Odoo MCP Server</span>
+                </div>
+
+                <h2>Education</h2>
+                <div class="skill-group">
+                    <strong>Master of IT</strong>
+                    <span>Jahangirnagar University</span>
+                </div>
+                <div class="skill-group">
+                    <strong>Bachelor of Science</strong>
+                    <span>SUST | Maths &amp; CSE</span>
+                </div>
+
+                <h2>Credentials</h2>
+                <div class="skill-group">
+                    <strong>Certified Odoo Consultant</strong>
+                    <span>Metamorphosis Ltd (Silver Partner)</span>
+                </div>
+                <div class="skill-group">
+                    <strong>IEEE Author</strong>
+                    <span>Data Processing Efficiency</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section-header">
+                    <h2>Executive Summary</h2>
+                    <div class="line"></div>
+                </div>
+                <p class="summary-text">
+                    Accomplished <strong>Senior Full Stack Odoo Developer &amp; Lead Engineer</strong> (Certified Odoo Consultant) with 7+ years of hands-on technical expertise building scalable enterprise ERP modules, custom Odoo themes, business process automations, and complex 3rd-party integrations for <strong>85+ Global &amp; Domestic Clients</strong>. 
+                    Hand-coded <strong>900+ custom Odoo modules</strong> across Python, OWL 2, and QWeb XML. Proven track record executing <strong>14+ Odoo Enterprise database upgrades (v13.0 to v19.0)</strong> with zero data loss. Pioneer of the <strong>Agentic E3 Framework</strong> for zero-defect AI/human code evaluation. Specialist in local AI inference (DeepSeek-R1, Qwen2.5, Llama 3 via vLLM/Ollama) and CLI AI Agents (Claude Code, Antigravity, Cline, Puku, Odoo MCP) to deliver 3-month complete software scopes in 2-3 weeks.
+                </p>
+
+                <div class="section-header">
+                    <h2>Full Stack Engineering &amp; Career History</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Senior Full Stack Odoo Developer &amp; Lead Architect</h3>
+                        <span class="exp-date">Feb 2026 - Present</span>
+                    </div>
+                    <div class="exp-company">Metamorphosis Ltd., Bangladesh</div>
+                    <ul>
+                        <li><strong>900+ Custom Odoo Modules &amp; R&amp;D:</strong> Personally designing and hand-coding high-complexity Odoo modules, automated business workflow engines, custom Odoo themes, and 3rd-party application APIs.</li>
+                        <li><strong>Odoo Enterprise Multi-Version Upgrades:</strong> Spearheaded 14+ major Odoo Enterprise database upgrades (v13-v17, v14-v19, v16-v19), maintaining financial ledgers and custom modules with zero data loss.</li>
+                        <li><strong>Hyper-Velocity Team Delivery (3 Mo. Scope in 2-3 Wks.):</strong> Directing developer teams to compress 3-month complete software deliverables into 2-3 weeks via agile streamlining and automated QA.</li>
+                        <li><strong>Local AI &amp; CLI Agent Workflows:</strong> Integrating local LLM inference (vLLM/Ollama) and CLI AI Agents (Claude Code, Antigravity, Cline, Puku, Odoo MCP) for rapid high-quality module delivery.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Sr. Odoo Systems Engineer &amp; DevOps Lead</h3>
+                        <span class="exp-date">Oct 2023 - Jan 2026</span>
+                    </div>
+                    <div class="exp-company">Metamorphosis Ltd., Bangladesh</div>
+                    <ul>
+                        <li><strong>NZ Marketplace Sync (Kogan &amp; Tradevine):</strong> Engineered real-time multichannel product catalog, inventory stock, and order sync connecting Odoo backend with New Zealand platforms <strong>Kogan</strong> and <strong>Tradevine</strong>.</li>
+                        <li><strong>Odoo Deployment Automation:</strong> Provisioned and automated 300+ Odoo instances using Bash and Docker, reducing deployment time by 85%.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Full Stack Odoo Developer</h3>
+                        <span class="exp-date">2022 - Sep 2023</span>
+                    </div>
+                    <div class="exp-company">Metamorphosis Ltd., Bangladesh</div>
+                    <ul>
+                        <li><strong>Custom Modules &amp; Business Workflows:</strong> Designed and hand-coded custom Odoo modules tailored strictly to complex client business requirements, custom workflow engines, and enterprise e-commerce website functionalities.</li>
+                        <li>Integrated regional payment gateways and optimized PostgreSQL multi-table queries for high-volume transactions.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Software Engineer &amp; Server Specialist</h3>
+                        <span class="exp-date">2020 - 2021</span>
+                    </div>
+                    <div class="exp-company">MetaKave, Bangladesh</div>
+                    <ul>
+                        <li><strong>Magento 2+ Mobile Integration:</strong> Developed backend endpoints and integrations for a Magento 2+ e-commerce platform powering a high-performance mobile application.</li>
+                        <li>Built LAMP web applications, managed AWS cloud &amp; hybrid server environments, optimized PostgreSQL database queries, and implemented SSL/Nginx reverse proxy configurations.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>IT Executive</h3>
+                        <span class="exp-date">Jun 2017 - Sep 2019</span>
+                    </div>
+                    <div class="exp-company">Aptech Industries, Bangladesh</div>
+                    <ul>
+                        <li>Managed enterprise IT infrastructure, Windows Server administration (Active Directory, DNS, IIS, Group Policy up to 2019), hardware/software deployment, network security, and internal IT operations support.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Md Niaj Shahriar Shishir | Senior Full Stack Odoo Developer | Portfolio: <a href="https://nsrshishir.github.io/nsrshishir/" style="color: var(--cxo-blue); text-decoration: none;">nsrshishir.github.io/nsrshishir</a> | Page 1 of 2</div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="hero" style="padding: 12px 28px;">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.png" alt="Niaj Shishir" class="hero-img" style="width: 60px; height: 78px;">
+                <div class="hero-left">
+                    <h1 style="font-size: 16.5pt;">Md Niaj Shahriar Shishir</h1>
+                    <p style="font-size: 9pt;">Full Stack Odoo Architecture &amp; Module Portfolio</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <span style="color: var(--accent); font-weight: 700; font-size: 8.5pt; text-transform: uppercase;"><a href="https://nsrshishir.github.io/nsrshishir/" style="color: var(--accent); text-decoration: none;">nsrshishir.github.io/nsrshishir</a></span>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="content" style="padding-top: 10px;">
+                <div class="section-header">
+                    <h2>High-Impact Engineering Deliverables</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>900+ Hand-Coded Odoo Custom Modules</h4>
+                        <p>Crafted 900+ custom Odoo modules across Odoo themes, business automations, new business unit integrations, and 3rd-party APIs using Python, QWeb, and OWL 2.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Odoo Enterprise Upgrade Suite (v13.0 to v19.0)</h4>
+                        <p>Executed 14+ major Odoo Enterprise database upgrades across v13.0 through v19.0 (v13-v17, v14-v19, v16-v19), preserving all historical reporting and complex custom modules.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>NZ Multichannel Marketplace Suite (Kogan &amp; Tradevine)</h4>
+                        <p>Architected real-time multi-channel product catalog, stock inventory, and sales order sync connecting Odoo backend with New Zealand marketplaces Kogan and Tradevine.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>OWL 2 Dashboards &amp; Query Optimizer</h4>
+                        <p>Built high-speed OWL 2 &amp; Spreadsheet KPI dashboards backed by PostgreSQL <code>_read_group</code> SQL aggregations and compute caching for multi-million record sets.</p>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: 14px;">
+                    <h2>Full Stack Engineering Stack Breakdown</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: flex; gap: 20px; margin-top: 4px;">
+                    <ul style="flex: 1; font-size: 8.2pt;">
+                        <li><strong>Odoo Core ORM &amp; Python:</strong> Advanced ORM methods, batching/prefetching, <code>_read_group</code>, compute dependencies, SQL constraints, custom mixins.</li>
+                        <li><strong>OWL 2 &amp; Frontend:</strong> Reactive components, custom JS widgets, QWeb XML templates, SCSS theme customization, lifecycle hooks.</li>
+                        <li><strong>900+ Hand-Coded Modules:</strong> Odoo Themes, automated workflow engines, new business unit integrations, 3rd-party APIs.</li>
+                        <li><strong>Odoo Enterprise Upgrades:</strong> 14+ Enterprise upgrades (v13.0 to v19.0, multi-step v13-v17, v14-v19, v16-v19), zero data loss data retention.</li>
+                    </ul>
+                    <ul style="flex: 1; font-size: 8.2pt;">
+                        <li><strong>E-Commerce &amp; Marketplace APIs:</strong> Kogan API, Tradevine sync, Magento 2+ sync, BNPL gateways, regional payment processors.</li>
+                        <li><strong>Database &amp; SQL Performance:</strong> PostgreSQL multi-table query tuning, custom indexing, GRS report generation, data migration scripts.</li>
+                        <li><strong>Local AI &amp; CLI Agent Tools:</strong> Claude Code, Antigravity, Cline, Puku, Odoo MCP server, DeepSeek-R1/Qwen2.5 local inference.</li>
+                        <li><strong>Infrastructure &amp; DevOps:</strong> Nginx reverse proxy worker isolation, Docker containerization, Windows Server (AD/DNS/IIS up to 2019), WeasyPrint PDF.</li>
+                    </ul>
+                </div>
+
+                <div class="section-header" style="margin-top: 14px;">
+                    <h2>Earlier Full Stack &amp; Research Contributions</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Spanish Textile Enterprise (Odoo v19 Upgrade)</h3>
+                        <span class="exp-date">2024</span>
+                    </div>
+                    <p style="font-size: 8.2pt; color: #334155; margin: 0;">Completed full migration for a major Spanish textile manufacturer, featuring custom GRS certification reports and localized European tax layouts.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Flutter Support Ticket Mobile App</h3>
+                        <span class="exp-date">2024</span>
+                    </div>
+                    <p style="font-size: 8.2pt; color: #334155; margin: 0;">Built a high-performance Flutter mobile client app integrated with Odoo helpdesk API for real-time ticket creation, updates, and push notifications.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-row">
+                        <h3>Performance Enhancement of Hadoop MapReduce</h3>
+                        <span class="exp-date">IEEE (2021)</span>
+                    </div>
+                    <p style="font-size: 8.2pt; color: #334155; margin: 0;">Developed the IMC algorithm, achieving a <strong>65% efficiency gain</strong> in data processing. Applied these principles to optimize large-scale Odoo database operations.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Md Niaj Shahriar Shishir | Senior Full Stack Odoo Developer | Portfolio: <a href="https://nsrshishir.github.io/nsrshishir/" style="color: var(--cxo-blue); text-decoration: none;">nsrshishir.github.io/nsrshishir</a> | Page 2 of 2</div>
+    </div>
+</body>
+</html>
