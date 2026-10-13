@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Niaj Shahriar Shishir - Senior Project Manager | Technology Lead</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --navy: #0f172a;
+            --blue: #2563eb;
+            --blue-light: #eff6ff;
+            --slate: #475569;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --accent: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.28;
+            background: #fff;
+            width: 210mm;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .page-1 {
+            page-break-after: always;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: var(--navy);
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 16px;
+        }
+
+        .hero-left-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .hero-img {
+            width: 76px;
+            height: 96px;
+            border-radius: 6px;
+            border: 2px solid var(--blue);
+            object-fit: cover;
+            object-position: center 15%;
+            flex-shrink: 0;
+        }
+
+        .hero-left h1 {
+            margin: 0;
+            font-size: 17.5pt;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+            line-height: 1.1;
+        }
+
+        .hero-left .hero-title {
+            margin: 3px 0 2px;
+            font-size: 9.3pt;
+            color: #60a5fa;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-left .hero-subtitle {
+            margin: 0;
+            font-size: 7.8pt;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .hero-right {
+            text-align: right;
+            font-size: 7.7pt;
+            opacity: 0.95;
+            line-height: 1.34;
+            flex-shrink: 0;
+        }
+
+        .hero-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-right .portfolio-link {
+            color: #38bdf8;
+            font-weight: 700;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--blue);
+            color: white;
+            display: flex;
+            width: 100%;
+            padding: 5.5px 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            font-size: 10.8pt;
+            font-weight: 800;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 6.2pt;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            opacity: 0.95;
+        }
+
+        /* Content Container */
+        .main-container {
+            flex: 1;
+            padding: 8px 24px 6px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section Heading */
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-top: 5.5px;
+            margin-bottom: 3px;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        .section-header h2 {
+            font-size: 9.6pt;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background: #cbd5e1;
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .summary-text {
+            font-size: 8.2pt;
+            color: #334155;
+            margin: 0 0 5px 0;
+            line-height: 1.27;
+            text-align: justify;
+        }
+
+        /* Competencies Grid */
+        .comp-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4.5px;
+            margin-bottom: 4.5px;
+        }
+
+        .comp-item {
+            flex: 1;
+            min-width: 48%;
+            background: #f8fafc;
+            padding: 4px 7px;
+            border-radius: 4px;
+            border-left: 2.5px solid var(--blue);
+            font-size: 7.7pt;
+            line-height: 1.21;
+        }
+
+        .comp-item strong {
+            color: var(--navy);
+            font-size: 7.9pt;
+            display: inline;
+        }
+
+        .comp-item span {
+            color: #475569;
+        }
+
+        /* Deliverables List */
+        .deliverable-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .deliverable-item {
+            position: relative;
+            padding-left: 11px;
+            margin-bottom: 3.2px;
+            font-size: 7.8pt;
+            line-height: 1.22;
+            color: #334155;
+        }
+
+        .deliverable-item::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-size: 8pt;
+            top: -0.5px;
+        }
+
+        .deliverable-item strong {
+            color: var(--navy);
+            font-size: 8.0pt;
+        }
+
+        /* Experience Entry */
+        .exp-item {
+            margin-bottom: 5px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .exp-row h3 {
+            margin: 0;
+            font-size: 9.3pt;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .exp-date {
+            font-size: 7.8pt;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        .exp-company {
+            font-size: 8.0pt;
+            font-weight: 600;
+            color: var(--slate);
+            margin-bottom: 2px;
+        }
+
+        .exp-list {
+            margin: 0;
+            padding-left: 12px;
+            list-style-type: square;
+        }
+
+        .exp-list li {
+            font-size: 7.7pt;
+            margin-bottom: 1.8px;
+            color: #334155;
+            line-height: 1.21;
+        }
+
+        .exp-list li strong {
+            color: var(--navy);
+        }
+
+        /* Education & Certifications */
+        .edu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4.5px;
+            margin-top: 2px;
+        }
+
+        .edu-card {
+            flex: 1;
+            min-width: 48%;
+            background: #f8fafc;
+            padding: 4px 7px;
+            border-radius: 4px;
+            border-left: 2.5px solid var(--blue);
+            font-size: 7.7pt;
+            line-height: 1.21;
+        }
+
+        .edu-card strong {
+            color: var(--navy);
+            font-size: 8.0pt;
+            display: block;
+        }
+
+        .edu-card span {
+            color: var(--slate);
+            font-size: 7.5pt;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3.5px 24px;
+            background: #fff;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7.1pt;
+            color: var(--slate);
+        }
+
+        .footer a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== PAGE 1 ==================== -->
+    <div class="page page-1">
+        <div class="hero">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.png" alt="Md Niaj Shahriar Shishir" class="hero-img">
+                <div class="hero-left">
+                    <h1>Md Niaj Shahriar Shishir</h1>
+                    <div class="hero-title">Senior Project Manager &amp; Technology Lead</div>
+                    <div class="hero-subtitle">Certified Odoo Consultant | Software Delivery, Architecture &amp; Team Leadership | 9+ Years Experience</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div><a href="https://nsrshishir.github.io/nsrshishir/" class="portfolio-link" target="_blank">nsrshishir.github.io/nsrshishir</a></div>
+                <div><a href="mailto:niaj@metamorphosis.com.bd">niaj@metamorphosis.com.bd</a></div>
+                <div><a href="mailto:nsrshishir550@gmail.com">nsrshishir550@gmail.com</a></div>
+                <div>+880 1827-512928 | Dhaka, Bangladesh</div>
+                <div>linkedin.com/in/nsrshishir</div>
+                <div>github.com/nsrshishir</div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">On-Time Delivery</span>
+                <span class="stat-label">3-Mo. Scope in 2-3 Weeks (Agile)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">ERP &amp; Digital Transform</span>
+                <span class="stat-label">900+ Modules &amp; 14+ Upgrades</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">Complex Integrations</span>
+                <span class="stat-label">SAP, SFA, 7 Gateways (1-Mo. Sprints)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">DevOps &amp; Infrastructure</span>
+                <span class="stat-label">300+ Live Deployments (CI/CD)</span>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="section-header">
+                <h2>Executive Summary</h2>
+                <div class="line"></div>
+            </div>
+            <p class="summary-text">
+                Results-driven Senior Project Manager and Technology Lead with 9+ years of professional experience directing software engineering teams, enterprise digital transformations, and full-lifecycle software delivery. Proven track record leading cross-functional teams of software engineers, Odoo developers, business analysts, QA, and DevOps specialists to deliver secure, scalable, and on-time technology solutions. Certified Odoo Consultant with deep expertise in ERP implementation lifecycles, business process modeling, system architecture, API/third-party platform integrations (SAP, mobile SFA, payment gateways), and cloud infrastructure. Established high-efficiency delivery governance compressing 3-month project scopes into 2–3 weeks with near-100% first-pass UAT acceptance via the Agentic E3 Framework. Adept at translating organizational business objectives into technical roadmaps, identifying and mitigating delivery risks, and managing stakeholder expectations across 85+ global and domestic enterprise projects.
+            </p>
+
+            <div class="section-header">
+                <h2>Core Technical &amp; Project Leadership Competencies</h2>
+                <div class="line"></div>
+            </div>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <strong>Project &amp; Delivery Management:</strong>
+                    <span>Agile/Scrum, sprint planning, 6-milestone delivery governance, risk management &amp; mitigation, resource allocation, UAT sign-off, SDLC management, on-time delivery KPIs.</span>
+                </div>
+                <div class="comp-item">
+                    <strong>Software Architecture &amp; Code Quality:</strong>
+                    <span>System architecture, modular design patterns, code reviews, coding standards, database design (PostgreSQL/MySQL), API design (REST, JSON-RPC, XML-RPC, Webhooks).</span>
+                </div>
+                <div class="comp-item">
+                    <strong>ERP &amp; Odoo Technology Leadership:</strong>
+                    <span>End-to-end ERP implementation lifecycle, 900+ custom modules, Odoo Studio, configuration, multi-version database upgrades (v13 to v19) with historical data retention.</span>
+                </div>
+                <div class="comp-item">
+                    <strong>Enterprise System Integrations:</strong>
+                    <span>Bidirectional enterprise connectors (SAP ERP, third-party mobile SFA, WMS, legacy databases), international payment gateways (7 NZ/AUS gateways in 1 month), message queues.</span>
+                </div>
+                <div class="comp-item">
+                    <strong>Infrastructure, Security &amp; DevOps:</strong>
+                    <span>Docker containerization, CI/CD pipelines, Bash automation, Linux/Windows Server (AD/DNS/IIS), Nginx worker isolation, access control, disaster recovery, data protection.</span>
+                </div>
+                <div class="comp-item">
+                    <strong>Team Mentorship &amp; Governance:</strong>
+                    <span>Technical hiring &amp; evaluation, engineer mentorship, performance appraisals, technical documentation, version control (Git), release and change management.</span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Key Project Delivery &amp; Technical Milestones</h2>
+                <div class="line"></div>
+            </div>
+            <ul class="deliverable-list">
+                <li class="deliverable-item">
+                    <strong>Enterprise SAP Bidirectional Integration (Delivered in 1 Month):</strong> Managed and led the technical delivery of an end-to-end integration between Odoo ERP and SAP enterprise software. Synchronized customer masters, sales orders, delivery fulfillments, and payments with automated error handling and logging within a 1-month milestone.
+                </li>
+                <li class="deliverable-item">
+                    <strong>7 NZ &amp; AUS Payment Gateways (1-Month Delivery Sprint):</strong> Directed the development, integration, and certification of 7 distinct New Zealand and Australian payment gateways and BNPL platforms within a single 1-month milestone. Automated invoice reconciliation, webhooks, and PCI-DSS compliance.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Hyper-Velocity Delivery Framework (3-Month Scope in 2–3 Weeks):</strong> Established a structured project governance framework combining modular architecture, automated test suites, and local AI agent workflows, cutting project delivery cycles by 75% while maintaining near-zero defect escape rates.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Historical Data &amp; Schema Retention in ERP Migrations:</strong> Led 14+ major multi-version database upgrades (Odoo 13 to 19). Developed an AST-based schema extraction strategy to retain all historical custom fields, financial ledger records, and audit reports while retiring legacy technical debt.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Third-Party Mobile SFA Integration for FMCG Manufacturing:</strong> Led the integration of an external mobile Sales Force Automation system with Odoo Enterprise for a leading FMCG manufacturer. Managed real-time bulk order fetching, stock reservation, and automated delivery order creation.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Infrastructure Automation for 300+ Live Deployments:</strong> Designed Docker and Bash deployment pipelines managing 300+ live database instances, reducing deployment onboarding time by 85% and ensuring high availability.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Multichannel E-Commerce &amp; Marketplace Platforms:</strong> Managed real-time API sync connecting ERP with international e-commerce channels (Kogan, Tradevine). Automated catalog mapping, inventory sync, and order fulfillment webhooks.
+                </li>
+                <li class="deliverable-item">
+                    <strong>Universal Odoo Database Model Context Protocol (MCP) Server:</strong> Led development of an enterprise MCP server exposing database schemas and models to AI tools for automated schema inspection, task execution, and system modernization.
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span>Md Niaj Shahriar Shishir | Senior Project Manager &amp; Technology Lead</span>
+            <span>Live Portfolio: <a href="https://nsrshishir.github.io/nsrshishir/">nsrshishir.github.io/nsrshishir</a></span>
+            <span>Page 1 of 2</span>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <div class="page">
+        <div class="hero" style="padding: 10px 24px;">
+            <div class="hero-left-wrapper">
+                <img src="image_niaj_blue_suit.png" alt="Md Niaj Shahriar Shishir" class="hero-img" style="width: 50px; height: 62px;">
+                <div class="hero-left">
+                    <h1 style="font-size: 14.5pt;">Md Niaj Shahriar Shishir</h1>
+                    <div class="hero-title" style="font-size: 8.2pt;">Leadership, Project Governance &amp; Experience</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <span style="color: #38bdf8; font-weight: 700; font-size: 8pt; text-transform: uppercase;">
+                    <a href="https://nsrshishir.github.io/nsrshishir/" class="portfolio-link">nsrshishir.github.io/nsrshishir</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="section-header">
+                <h2>Professional Experience &amp; Project Leadership History</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-row">
+                    <h3>Head of Technology &amp; Technical Project Lead</h3>
+                    <span class="exp-date">Feb 2026 – Present</span>
+                </div>
+                <div class="exp-company">Metamorphosis Ltd. | Dhaka, Bangladesh (Official Odoo Silver Partner)</div>
+                <ul class="exp-list">
+                    <li><strong>Technology Direction &amp; Delivery Management:</strong> Directs software engineering teams, overseeing the design, development, testing, deployment, and maintenance of enterprise technology solutions for 85+ global and domestic clients.</li>
+                    <li><strong>Project Governance &amp; On-Time Delivery:</strong> Translates business requirements into technical architectures and practical project plans. Monitors timelines, resource allocation, dependencies, and deliverables to ensure in-time project delivery.</li>
+                    <li><strong>Architecture &amp; Code Quality Assurance:</strong> Conducts system architecture reviews, database designs, API specifications, and code reviews. Enforces coding standards, security guidelines, and the Agentic E3 Framework to minimize technical debt.</li>
+                    <li><strong>High-Impact Integration Delivery:</strong> Managed delivery of critical integrations on aggressive timelines, including an end-to-end SAP ERP sync (orders, customers, deliveries, payments) in 1 month, and 7 NZ/AUS payment gateways in a 1-month milestone.</li>
+                    <li><strong>Team Mentorship &amp; Capability Building:</strong> Mentors software engineers, functional consultants, and QA staff. Evaluates technical performance, leads knowledge-sharing sessions, and directs technical recruitment.</li>
+                    <li><strong>Infrastructure &amp; Worker Isolation:</strong> Configured Nginx reverse proxy worker isolation to separate heavy external API sync and e-commerce traffic from internal administrative back-office Gunicorn workers, eliminating system downtime.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-row">
+                    <h3>Sr. Systems Engineer &amp; DevOps Lead</h3>
+                    <span class="exp-date">Oct 2023 – Jan 2026</span>
+                </div>
+                <div class="exp-company">Metamorphosis Ltd. | Dhaka, Bangladesh</div>
+                <ul class="exp-list">
+                    <li><strong>Infrastructure Planning &amp; DevOps Automation:</strong> Designed automated Docker and Bash deployment pipelines managing 300+ live instances, reducing client onboarding time by 85% and ensuring high system stability and reliability.</li>
+                    <li><strong>Marketplace &amp; Enterprise SFA Integrations:</strong> Led real-time sync modules connecting ERP to international e-commerce channels (Kogan, Tradevine, BNPL) and mobile SFA backends. Built automated reconciliation scripts to prevent data drift.</li>
+                    <li><strong>Technical Standards &amp; Release Management:</strong> Maintained version control (Git), release management, change management, and automated testing pipelines across production environments.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-row">
+                    <h3>Full Stack Developer &amp; Module Lead</h3>
+                    <span class="exp-date">2022 – Sep 2023</span>
+                </div>
+                <div class="exp-company">Metamorphosis Ltd. | Dhaka, Bangladesh</div>
+                <ul class="exp-list">
+                    <li><strong>Business Requirement Translation:</strong> Hand-coded hundreds of custom Odoo modules matching client operational requirements, business process automations, dynamic reporting, and portal features.</li>
+                    <li><strong>Payment Gateways &amp; Database Optimization:</strong> Built secure payment gateway integrations (cards, mobile banking) and optimized complex multi-table PostgreSQL queries and indexing for high-volume transactions.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-row">
+                    <h3>Software Engineer &amp; Systems Specialist</h3>
+                    <span class="exp-date">2020 – 2021</span>
+                </div>
+                <div class="exp-company">MetaKave | Dhaka, Bangladesh</div>
+                <ul class="exp-list">
+                    <li><strong>Application Development &amp; Mobile APIs:</strong> Engineered backend web services and REST endpoints for Magento 2+ e-commerce platforms connected to mobile apps. Managed cloud server environments and Nginx SSL reverse proxies.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-row">
+                    <h3>IT Executive</h3>
+                    <span class="exp-date">Jun 2017 – Sep 2019</span>
+                </div>
+                <div class="exp-company">Aptech Industries | Dhaka, Bangladesh</div>
+                <ul class="exp-list">
+                    <li><strong>Enterprise IT &amp; Server Administration:</strong> Managed enterprise IT operations, Windows Server administration (Active Directory, DNS, IIS, Group Policy up to 2019), network security, disaster recovery, and infrastructure deployments.</li>
+                </ul>
+            </div>
+
+            <div class="section-header" style="margin-top: 4px;">
+                <h2>Education, Certifications &amp; Research</h2>
+                <div class="line"></div>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <strong>Certified Odoo Consultant</strong>
+                    <span>Metamorphosis Ltd. (Official Odoo Silver Partner). Extensive expertise in Odoo standard architecture, ORM, Studio, configuration, and ERP implementation lifecycles.</span>
+                </div>
+                <div class="edu-card">
+                    <strong>Master of Information Technology (MIT)</strong>
+                    <span>Jahangirnagar University (2018 – 2019). Focus on Enterprise Software Systems, Advanced Database Management, and Distributed Computing.</span>
+                </div>
+                <div class="edu-card">
+                    <strong>Bachelor of Science (B.Sc)</strong>
+                    <span>Shahjalal University of Science and Technology (SUST). 1st Major in Mathematics, 2nd Major in Computer Science &amp; Engineering (CSE).</span>
+                </div>
+                <div class="edu-card">
+                    <strong>IEEE Research Author (2021)</strong>
+                    <span>Published paper on data processing optimization in Hadoop MapReduce, introducing the IMC algorithm (65% efficiency gain). Applied distributed principles to enterprise database scale.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Md Niaj Shahriar Shishir | Senior Project Manager &amp; Technology Lead</span>
+            <span>Live Portfolio: <a href="https://nsrshishir.github.io/nsrshishir/">nsrshishir.github.io/nsrshishir</a></span>
+            <span>Page 2 of 2</span>
+        </div>
+    </div>
+</body>
+</html>
