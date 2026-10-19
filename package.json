@@ -1,0 +1,11 @@
+{
+  "name": "nsrshishir-cv-build",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pdf": "python build_pdfs.py"
+  },
+  "devDependencies": {
+    "puppeteer": "25.12.0"
+  }
+}
