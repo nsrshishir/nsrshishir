@@ -128,7 +128,7 @@ def create_tech_lead_cv(output_path):
     stats_data = [
         ("900+ Modules", "HAND-CODED IN PYTHON & XML"),
         ("SAP & 7 Gateways", "BUILT IN 1-MONTH SPRINTS"),
-        ("14+ Upgrades", "ZERO DATA LOSS RETENTION"),
+        ("16+ Upgrades", "ZERO DATA LOSS RETENTION"),
         ("Team Delivery", "3-MONTH SCOPE IN 2-3 WEEKS")
     ]
     
@@ -211,7 +211,7 @@ def create_tech_lead_cv(output_path):
         "Python, JavaScript (OWL 2), and XML for 85+ enterprise clients. Experienced in delivering complex integrations under tight "
         "deadlines, including a complete bidirectional sync with SAP (customers, sales orders, deliveries, payments) in 1 month, and "
         "7 New Zealand and Australian payment gateways in a single month. Delivered integrations for mobile Sales Force Automation "
-        "(SFA), telecom SMS marketing gateways, and cross-border retail POS systems. Completed 14+ database upgrades across Odoo 13 "
+        "(SFA), telecom SMS marketing gateways, and cross-border retail POS systems. Completed 16+ database upgrades across Odoo 13 "
         "to 19 using structural data retention methods that carry over all historical custom fields and financial records while dropping "
         "obsolete code debt. Leads development teams using modern CLI agents and local AI models to cut delivery cycles from 3 months "
         "down to 2–3 weeks while enforcing clean code standards via the Agentic E3 Framework."
@@ -231,8 +231,8 @@ def create_tech_lead_cv(output_path):
         ("Odoo Customization:", "900+ custom modules; custom models, business logic, OWL 2 reactive components, QWeb XML views, inheritances, compute field caching, automated server actions, cron tasks."),
         ("System & API Integrations:", "Bidirectional sync with SAP, external mobile SFA, WMS, and legacy SQL databases. REST, JSON-RPC, XML-RPC APIs, Webhook event pipelines, ETL data mapping."),
         ("Data Reliability & Sync:", "Idempotent API calls, queue-based retries, rate limits, audit logs, conflict resolution, automated stock reconciliation, and zero data divergence."),
-        ("Performance Tuning:", "ORM batching, prefetching, eliminating N+1 queries, PostgreSQL index design, _read_group aggregations, Gunicorn worker isolation for API vs back-office traffic."),
-        ("Historical Data Retention:", "14+ major upgrades (v13 to v19); AST schema parsing to retain legacy models, stored fields, and audit views while dropping broken Python workflows to eliminate technical debt."),
+        ("Performance Tuning:", "ORM batching, prefetching, eliminating N+1 queries, PostgreSQL index design, _read_group aggregations, Odoo worker isolation for API vs back-office traffic."),
+        ("Historical Data Retention:", "16+ major upgrades (v13 to v19); AST schema parsing to retain legacy models, stored fields, and audit views while dropping broken Python workflows to eliminate technical debt."),
         ("Technical Leadership:", "Team leadership, developer mentorship, sprint planning, client stakeholder management, 6-milestone delivery model, CI/CD, Docker deployment automation.")
     ]
 
@@ -320,7 +320,7 @@ def create_tech_lead_cv(output_path):
                "Established a delivery workflow combining modular Odoo patterns, automated test suites, and local AI tools (Claude Code, Antigravity, local LLMs), cutting project cycle times by up to 75% with high first-pass UAT acceptance.")
 
     add_bullet("Odoo Enterprise Upgrades & Historical Data Retention:", 
-               "Led 14+ major database upgrades across multiple version jumps (v13-v17, v14-v19, v16-v19). Applied structural data retention scripts to retain decades of custom business data, fields, and views while safely stripping out outdated Python logic.")
+               "Led 16+ major database upgrades across multiple version jumps (v13-v17, v14-v19, v16-v19). Applied structural data retention scripts to retain decades of custom business data, fields, and views while safely stripping out outdated Python logic.")
 
     add_bullet("Nginx Server Worker Isolation:", 
                "Configured Nginx upstream routing into separate worker pools, isolating heavy external API sync and e-commerce traffic from internal back-office users to eliminate slowdowns.")

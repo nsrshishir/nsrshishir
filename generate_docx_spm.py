@@ -127,7 +127,7 @@ def create_spm_docx(output_path):
     
     stats_data = [
         ("On-Time Delivery", "3-MO. SCOPE IN 2-3 WEEKS (AGILE)"),
-        ("ERP & Digital Transform", "900+ MODULES & 14+ UPGRADES"),
+        ("ERP & Digital Transform", "900+ MODULES & 16+ UPGRADES"),
         ("Complex Integrations", "SAP, SFA, 7 GATEWAYS (1-MO. SPRINTS)"),
         ("DevOps & Infrastructure", "300+ LIVE DEPLOYMENTS (CI/CD)")
     ]
@@ -272,7 +272,7 @@ def create_spm_docx(output_path):
                "Established a structured project governance framework combining modular architecture, automated test suites, and local AI agent workflows, cutting project delivery cycles by 75% while maintaining near-zero defect escape rates.")
 
     add_bullet("Historical Data & Schema Retention in ERP Migrations:", 
-               "Led 14+ major multi-version database upgrades (Odoo 13 to 19). Developed an AST-based schema extraction strategy to retain all historical custom fields, financial ledger records, and audit reports while retiring legacy technical debt.")
+               "Led 16+ major multi-version database upgrades (Odoo 13 to 19). Developed an AST-based schema extraction strategy to retain all historical custom fields, financial ledger records, and audit reports while retiring legacy technical debt.")
 
     add_bullet("Third-Party Mobile SFA Integration for FMCG Manufacturing:", 
                "Led the integration of an external mobile Sales Force Automation system with Odoo Enterprise for a leading FMCG manufacturer. Managed real-time bulk order fetching, stock reservation, and automated delivery order creation.")
@@ -326,7 +326,7 @@ def create_spm_docx(output_path):
                "Mentors software engineers, functional consultants, and QA staff. Evaluates technical performance, leads knowledge-sharing sessions, and directs technical recruitment.")
 
     add_bullet("Infrastructure & Worker Isolation:", 
-               "Configured Nginx reverse proxy worker isolation to separate heavy external API sync and e-commerce traffic from internal administrative back-office Gunicorn workers, eliminating system downtime.")
+               "Configured Nginx reverse proxy worker isolation to separate heavy external API sync and e-commerce traffic from internal administrative back-office Odoo workers, eliminating system downtime.")
 
     # Role 2
     p_r2 = doc.add_paragraph()
